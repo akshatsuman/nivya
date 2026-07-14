@@ -1,80 +1,101 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router";
+import { Link, Navigate, useLocation, useNavigate } from "react-router";
 import {
-  Eye,
-  EyeOff,
   ShieldCheck,
   ArrowRight,
   ArrowLeft,
-  Check,
   Loader2,
   Lock,
+  Smartphone,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useAuth } from "@/app/Auth";
 
-type Mode = "user" | "agent";
-
-const COPY: Record<
-  Mode,
-  {
-    kicker: string;
-    heading: string;
-    sub: string;
-    userLabel: string;
-    userHint: string;
-    cta: string;
-    footPrompt: string;
-    footAction: string;
-  }
-> = {
-  user: {
-    kicker: "Member sign in",
-    heading: "Welcome back",
-    sub: "Sign in to review your portfolio and keep your SIPs on course.",
-    userLabel: "Email or phone",
-    userHint: "Use the email or mobile linked to your folio.",
-    cta: "Log in",
-    footPrompt: "New to Nivya?",
-    footAction: "Create an account",
-  },
-  agent: {
-    kicker: "Advisor & partner sign in",
-    heading: "Partner desk",
-    sub: "Access client books, track SIP mandates, and manage referrals.",
-    userLabel: "Agent ID or email",
-    userHint: "Your ARN-linked agent ID or registered partner email.",
-    cta: "Enter partner desk",
-    footPrompt: "Want to distribute with Nivya?",
-    footAction: "Apply to partner",
-  },
-};
+const RESEND_SECONDS = 30;
 
 export default function LoginPage() {
-  const [mode, setMode] = useState<Mode>("user");
-  const [showPassword, setShowPassword] = useState(false);
-  const [remember, setRemember] = useState(true);
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const { isAuthenticated, loginWithOtp } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = (location.state as { from?: string } | null)?.from ?? "/app";
+
+  const incomingPhone =
+    typeof (location.state as { phone?: string } | null)?.phone === "string"
+      ? (location.state as { phone: string }).phone.replace(/\D/g, "").slice(0, 10)
+      : "";
+
+  const [step, setStep] = useState<"phone" | "otp">(
+    incomingPhone.length === 10 ? "otp" : "phone"
+  );
+  const [phone, setPhone] = useState(incomingPhone);
+  const [otp, setOtp] = useState("");
+  const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [resendIn, setResendIn] = useState(0);
 
   useEffect(() => {
     const t = requestAnimationFrame(() => setMounted(true));
     return () => cancelAnimationFrame(t);
   }, []);
 
-  const c = COPY[mode];
+  useEffect(() => {
+    if (incomingPhone.length === 10) {
+      setResendIn(RESEND_SECONDS);
+    }
+  }, [incomingPhone]);
 
-  const handleSubmit = () => {
+  useEffect(() => {
+    if (resendIn <= 0) return;
+    const id = window.setInterval(() => {
+      setResendIn((s) => (s <= 1 ? 0 : s - 1));
+    }, 1000);
+    return () => window.clearInterval(id);
+  }, [resendIn]);
+
+  if (isAuthenticated) {
+    return <Navigate to={from} replace />;
+  }
+
+  const digits = phone.replace(/\D/g, "").slice(-10);
+
+  const startResendTimer = () => setResendIn(RESEND_SECONDS);
+
+  const requestOtp = () => {
+    setError("");
+    if (digits.length !== 10) {
+      setError("Enter a valid 10-digit mobile number.");
+      return;
+    }
+    setOtp("");
+    setStep("otp");
+    startResendTimer();
+  };
+
+  const resendOtp = () => {
+    if (resendIn > 0) return;
+    setError("");
+    setOtp("");
+    startResendTimer();
+  };
+
+  const handleVerify = () => {
     if (submitting) return;
     setSubmitting(true);
-    // Demo only — wire to your auth endpoint here.
-    setTimeout(() => setSubmitting(false), 1600);
+    setError("");
+    window.setTimeout(() => {
+      const result = loginWithOtp(digits, otp.trim());
+      setSubmitting(false);
+      if (!result.ok) {
+        setError(result.message);
+        return;
+      }
+      navigate(from, { replace: true });
+    }, 700);
   };
 
   return (
     <div className="relative min-h-screen w-full bg-paper text-ink">
-      {/* warm paper atmosphere — same grain as the hero */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0"
@@ -86,64 +107,65 @@ export default function LoginPage() {
       />
 
       <div className="relative z-10 grid min-h-screen lg:grid-cols-[1.05fr_1fr]">
-        {/* ───────────────── Brand pane (lg+) ───────────────── */}
-        <aside className="relative hidden overflow-hidden bg-ink lg:flex lg:flex-col lg:justify-between lg:p-14 xl:p-16">
+        <aside
+          className="relative hidden overflow-hidden lg:flex lg:flex-col lg:justify-between lg:p-14 xl:p-16"
+          style={{
+            background:
+              "linear-gradient(165deg, #FFFDF8 0%, #F8F1E4 48%, #F3E9D8 100%)",
+          }}
+        >
           <div
             aria-hidden="true"
             className="pointer-events-none absolute inset-0"
             style={{
               background:
-                "radial-gradient(50% 44% at 78% 14%, rgba(26,160,140,0.20) 0%, transparent 70%)," +
-                "radial-gradient(42% 42% at 14% 88%, rgba(180,146,90,0.14) 0%, transparent 72%)",
+                "radial-gradient(56% 48% at 86% 8%, rgba(26,160,140,0.14) 0%, transparent 68%)," +
+                "radial-gradient(48% 44% at 8% 92%, rgba(180,146,90,0.16) 0%, transparent 70%)," +
+                "radial-gradient(40% 36% at 50% 50%, rgba(255,255,255,0.55) 0%, transparent 75%)",
             }}
           />
-          {/* faint ledger ruling */}
-          <div
-            aria-hidden="true"
-            className="ledger-lines pointer-events-none absolute inset-0 opacity-[0.5]"
-          />
+          <div aria-hidden="true" className="ledger-lines pointer-events-none absolute inset-0 opacity-[0.22]" />
 
-          {/* Top — wordmark */}
-          <div className="relative flex items-center gap-3">
-            <span className="grid h-10 w-10 place-items-center rounded-[12px] bg-paper-raised shadow-[0_10px_30px_-14px_rgba(0,0,0,0.6)]">
-              <img src="/assets/logo.png" alt="" className="h-6 w-auto" />
+          <div className="relative flex items-center gap-3.5">
+            <span className="grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-[13px] bg-white shadow-[0_8px_24px_-12px_rgba(20,35,59,0.28)] ring-1 ring-line">
+              <img
+                src="/assets/logo.png"
+                alt=""
+                className="h-[78%] w-[78%] object-cover"
+              />
             </span>
-            <span className="font-display text-[24px] font-600 leading-none tracking-[-0.01em] text-paper">
+            <span className="font-display text-[24px] font-600 leading-none tracking-[-0.01em] text-ink">
               Nivya
             </span>
           </div>
 
-          {/* Middle — thesis */}
           <div className="relative max-w-[440px]">
-            <span className="inline-flex items-center gap-2.5 font-mono text-[11.5px] uppercase tracking-[0.18em] text-gold-soft">
-              <span className="inline-block h-1.5 w-1.5 rounded-full bg-teal" />
-              Patient money, tended well
+            <span className="inline-flex items-center gap-2.5 font-mono text-[11.5px] uppercase tracking-[0.18em] text-ink-mute">
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-evergreen" />
+              Investor sign in
             </span>
-            <h1 className="mt-5 font-display text-[clamp(2.2rem,3.4vw,3.1rem)] font-500 leading-[1.04] tracking-[-0.02em] text-paper">
-              Wealth is{" "}
-              <span className="italic text-teal">tended,</span> not timed.
+            <h1 className="mt-5 font-display text-[clamp(2.2rem,3.4vw,3.1rem)] font-500 leading-[1.04] tracking-[-0.02em] text-ink">
+              Discover confidently.{" "}
+              <span className="italic text-evergreen">Invest transparently.</span>
             </h1>
-            <p className="mt-5 max-w-[400px] font-sans text-[15.5px] leading-relaxed text-paper/65">
-              Sign in to a calm, transparent place for your mutual funds —
-              direct plans, automated SIPs, and fees you can actually see.
+            <p className="mt-5 max-w-[400px] font-sans text-[15.5px] leading-relaxed text-ink-soft">
+              Sign in with OTP to explore Regular mutual funds, manage SIPs, and
+              track your portfolio.
             </p>
           </div>
 
-          {/* Bottom — trust */}
           <div className="relative flex flex-wrap items-center gap-x-7 gap-y-3">
-            <span className="inline-flex items-center gap-2 font-sans text-[13.5px] font-medium text-paper/75">
-              <ShieldCheck size={17} className="text-teal" />
-              SEBI-registered
+            <span className="inline-flex items-center gap-2 font-sans text-[13.5px] font-medium text-ink-soft">
+              <ShieldCheck size={17} className="text-evergreen" />
+              AMFI-registered Mutual Fund Distributor
             </span>
-            <span className="font-sans text-[13.5px] font-600 text-gold-soft">
-              Wealth, made simple.
+            <span className="font-sans text-[13.5px] font-600 text-evergreen">
+              Regular plans only
             </span>
           </div>
         </aside>
 
-        {/* ───────────────── Form pane ───────────────── */}
         <main className="flex flex-col px-6 py-8 sm:px-10 md:py-10">
-          {/* Top bar: mobile wordmark + back link */}
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center gap-2.5 lg:invisible">
               <img src="/assets/logo.png" alt="Nivya" className="h-7 w-auto" />
@@ -163,7 +185,6 @@ export default function LoginPage() {
             </Link>
           </div>
 
-          {/* Centered card */}
           <div className="flex flex-1 items-center justify-center py-10">
             <div
               className={cn(
@@ -171,171 +192,129 @@ export default function LoginPage() {
                 mounted ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
               )}
             >
-              {/* eyebrow + heading */}
               <div className="flex items-center justify-between">
                 <span className="inline-flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.18em] text-ink-mute">
                   <span className="inline-block h-1.5 w-1.5 rounded-full bg-teal" />
-                  Secure access
+                  Secure OTP access
                 </span>
                 <Lock size={15} className="text-ink-mute" />
               </div>
 
               <h2 className="mt-4 font-display text-[28px] font-500 leading-[1.1] tracking-[-0.01em] text-ink">
-                {c.heading}
+                {step === "phone" ? "Welcome back" : "Enter OTP"}
               </h2>
               <p className="mt-2 font-sans text-[14.5px] leading-relaxed text-ink-soft">
-                {c.sub}
+                {step === "phone"
+                  ? "Sign in with your mobile number to review your portfolio and keep SIPs on course."
+                  : `We sent a 6-digit code to +91 ${digits}.`}
               </p>
 
-              {/* passbook perforation */}
               <div className="perf my-6" aria-hidden="true" />
 
-              {/* ── Member / Agent toggle ── */}
-              <div
-                role="tablist"
-                aria-label="Choose account type"
-                className="relative grid grid-cols-2 rounded-full border border-line-strong bg-paper-deep p-1"
-              >
-                <span
-                  aria-hidden="true"
-                  className={cn(
-                    "absolute inset-y-1 left-1 w-[calc(50%-0.25rem)] rounded-full bg-evergreen shadow-[0_8px_18px_-10px_rgba(15,110,94,0.9)] transition-transform duration-300 ease-out",
-                    mode === "agent" && "translate-x-[calc(100%)]"
-                  )}
-                />
-                {(
-                  [
-                    { key: "user", label: "Member" },
-                    { key: "agent", label: "Agent / advisor" },
-                  ] as { key: Mode; label: string }[]
-                ).map((opt) => {
-                  const active = mode === opt.key;
-                  return (
-                    <button
-                      key={opt.key}
-                      role="tab"
-                      type="button"
-                      aria-selected={active}
-                      onClick={() => setMode(opt.key)}
-                      className={cn(
-                        "relative z-10 rounded-full py-2.5 font-sans text-[13.5px] font-semibold transition-colors duration-200",
-                        active ? "text-paper-raised" : "text-ink-soft hover:text-ink"
-                      )}
+              <p className="font-mono text-[11.5px] uppercase tracking-[0.12em] text-ink-mute">
+                Investor login
+              </p>
+
+              {step === "phone" ? (
+                <div className="mt-6 space-y-7">
+                  <div className="relative">
+                    <input
+                      id="phone"
+                      type="tel"
+                      inputMode="numeric"
+                      autoComplete="tel"
+                      maxLength={10}
+                      placeholder=" "
+                      value={phone}
+                      onChange={(e) =>
+                        setPhone(e.target.value.replace(/\D/g, "").slice(0, 10))
+                      }
+                      onKeyDown={(e) => e.key === "Enter" && requestOtp()}
+                      className="peer w-full border-0 border-b-[1.5px] border-line-strong bg-transparent pb-2 pt-1 font-sans text-[16px] text-ink outline-none transition-colors placeholder:text-transparent"
+                    />
+                    <span
+                      aria-hidden="true"
+                      className="pointer-events-none absolute bottom-0 left-0 h-[1.5px] w-full origin-left scale-x-0 bg-evergreen transition-transform duration-300 peer-focus:scale-x-100"
+                    />
+                    <label
+                      htmlFor="phone"
+                      className="pointer-events-none absolute -top-3 left-0 font-sans text-[12.5px] font-medium text-ink-soft transition-all duration-200 peer-placeholder-shown:top-1.5 peer-placeholder-shown:text-[15.5px] peer-placeholder-shown:font-normal peer-placeholder-shown:text-ink-mute peer-focus:-top-3 peer-focus:text-[12.5px] peer-focus:font-medium peer-focus:text-evergreen"
                     >
-                      {opt.label}
+                      Mobile number
+                    </label>
+                  </div>
+                </div>
+              ) : (
+                <div className="mt-6 space-y-5">
+                  <div className="relative">
+                    <input
+                      id="otp"
+                      type="text"
+                      inputMode="numeric"
+                      autoComplete="one-time-code"
+                      maxLength={6}
+                      placeholder=" "
+                      value={otp}
+                      onChange={(e) => setOtp(e.target.value.replace(/\D/g, "").slice(0, 6))}
+                      onKeyDown={(e) => e.key === "Enter" && handleVerify()}
+                      className="peer w-full border-0 border-b-[1.5px] border-line-strong bg-transparent pb-2 pt-1 font-sans text-[16px] tracking-[0.35em] text-ink outline-none transition-colors placeholder:text-transparent"
+                    />
+                    <span
+                      aria-hidden="true"
+                      className="pointer-events-none absolute bottom-0 left-0 h-[1.5px] w-full origin-left scale-x-0 bg-evergreen transition-transform duration-300 peer-focus:scale-x-100"
+                    />
+                    <label
+                      htmlFor="otp"
+                      className="pointer-events-none absolute -top-3 left-0 font-sans text-[12.5px] font-medium text-ink-soft transition-all duration-200 peer-placeholder-shown:top-1.5 peer-placeholder-shown:text-[15.5px] peer-placeholder-shown:font-normal peer-placeholder-shown:text-ink-mute peer-focus:-top-3 peer-focus:text-[12.5px] peer-focus:font-medium peer-focus:text-evergreen"
+                    >
+                      6-digit OTP
+                    </label>
+                  </div>
+
+                  <div className="flex items-center justify-between gap-3">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setStep("phone");
+                        setOtp("");
+                        setError("");
+                        setResendIn(0);
+                      }}
+                      className="inline-flex items-center gap-1.5 font-sans text-[13px] font-semibold text-evergreen"
+                    >
+                      <Smartphone size={14} /> Change number
                     </button>
-                  );
-                })}
-              </div>
 
-              <p className="mt-3 font-mono text-[11.5px] uppercase tracking-[0.12em] text-ink-mute">
-                {c.kicker}
-              </p>
-
-              {/* ── Fields ── */}
-              <div className="mt-6 space-y-7">
-                {/* Username / agent id */}
-                <div className="relative">
-                  <input
-                    id="username"
-                    type="text"
-                    autoComplete="username"
-                    placeholder=" "
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    className="peer w-full border-0 border-b-[1.5px] border-line-strong bg-transparent pb-2 pt-1 font-sans text-[16px] text-ink outline-none transition-colors placeholder:text-transparent"
-                  />
-                  <span
-                    aria-hidden="true"
-                    className="pointer-events-none absolute bottom-0 left-0 h-[1.5px] w-full origin-left scale-x-0 bg-evergreen transition-transform duration-300 peer-focus:scale-x-100"
-                  />
-                  <label
-                    htmlFor="username"
-                    className="pointer-events-none absolute -top-3 left-0 font-sans text-[12.5px] font-medium text-ink-soft transition-all duration-200 peer-placeholder-shown:top-1.5 peer-placeholder-shown:text-[15.5px] peer-placeholder-shown:font-normal peer-placeholder-shown:text-ink-mute peer-focus:-top-3 peer-focus:text-[12.5px] peer-focus:font-medium peer-focus:text-evergreen"
-                  >
-                    {c.userLabel}
-                  </label>
+                    <button
+                      type="button"
+                      onClick={resendOtp}
+                      disabled={resendIn > 0}
+                      className="font-sans text-[13px] font-semibold text-evergreen disabled:cursor-not-allowed disabled:text-ink-mute"
+                    >
+                      {resendIn > 0 ? `Resend OTP in ${resendIn}s` : "Resend OTP"}
+                    </button>
+                  </div>
                 </div>
+              )}
 
-                {/* Password */}
-                <div className="relative">
-                  <input
-                    id="password"
-                    type={showPassword ? "text" : "password"}
-                    autoComplete="current-password"
-                    placeholder=" "
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="peer w-full border-0 border-b-[1.5px] border-line-strong bg-transparent pb-2 pr-10 pt-1 font-sans text-[16px] text-ink outline-none transition-colors placeholder:text-transparent"
-                  />
-                  <span
-                    aria-hidden="true"
-                    className="pointer-events-none absolute bottom-0 left-0 h-[1.5px] w-full origin-left scale-x-0 bg-evergreen transition-transform duration-300 peer-focus:scale-x-100"
-                  />
-                  <label
-                    htmlFor="password"
-                    className="pointer-events-none absolute -top-3 left-0 font-sans text-[12.5px] font-medium text-ink-soft transition-all duration-200 peer-placeholder-shown:top-1.5 peer-placeholder-shown:text-[15.5px] peer-placeholder-shown:font-normal peer-placeholder-shown:text-ink-mute peer-focus:-top-3 peer-focus:text-[12.5px] peer-focus:font-medium peer-focus:text-evergreen"
-                  >
-                    Password
-                  </label>
-                  <button
-                    type="button"
-                    onClick={() => setShowPassword((s) => !s)}
-                    aria-label={showPassword ? "Hide password" : "Show password"}
-                    className="absolute bottom-1.5 right-0 grid h-8 w-8 place-items-center rounded-full text-ink-mute transition-colors hover:text-ink"
-                  >
-                    {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
-                  </button>
-                </div>
-              </div>
+              {error && (
+                <p className="mt-4 font-sans text-[13px] font-medium text-[#c0362c]">{error}</p>
+              )}
 
-              <p className="mt-2.5 font-sans text-[12px] leading-snug text-ink-mute">
-                {c.userHint}
-              </p>
-
-              {/* remember + forgot */}
-              <div className="mt-5 flex items-center justify-between">
-                <button
-                  type="button"
-                  onClick={() => setRemember((r) => !r)}
-                  className="group inline-flex items-center gap-2.5 font-sans text-[13.5px] text-ink-soft transition-colors hover:text-ink"
-                >
-                  <span
-                    className={cn(
-                      "grid h-[18px] w-[18px] place-items-center rounded-[6px] border-[1.5px] transition-all duration-200",
-                      remember
-                        ? "border-evergreen bg-evergreen text-paper-raised"
-                        : "border-line-strong bg-paper-raised text-transparent group-hover:border-ink-soft"
-                    )}
-                  >
-                    <Check size={13} strokeWidth={3} />
-                  </span>
-                  Remember me
-                </button>
-
-                <a
-                  href="#"
-                  className="font-sans text-[13.5px] font-semibold text-evergreen underline-offset-4 transition-colors hover:text-evergreen-deep hover:underline"
-                >
-                  Forgot password?
-                </a>
-              </div>
-
-              {/* submit */}
               <button
                 type="button"
-                onClick={handleSubmit}
-                disabled={submitting}
+                onClick={step === "phone" ? requestOtp : handleVerify}
+                disabled={submitting || (step === "otp" && otp.length < 6)}
                 className="group mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-evergreen py-4 font-sans text-[15.5px] font-semibold text-paper-raised shadow-[0_12px_28px_-12px_rgba(15,110,94,0.75)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-evergreen-deep hover:shadow-[0_18px_34px_-14px_rgba(15,110,94,0.8)] disabled:translate-y-0 disabled:opacity-80"
               >
                 {submitting ? (
                   <>
                     <Loader2 size={18} className="animate-spin" />
-                    Signing you in…
+                    Verifying…
                   </>
                 ) : (
                   <>
-                    {c.cta}
+                    {step === "phone" ? "Send OTP" : "Verify & enter app"}
                     <ArrowRight
                       size={18}
                       className="transition-transform group-hover:translate-x-0.5"
@@ -344,24 +323,27 @@ export default function LoginPage() {
                 )}
               </button>
 
-              {/* sign up */}
               <p className="mt-6 text-center font-sans text-[14px] text-ink-soft">
-                {c.footPrompt}{" "}
-                <a
-                  href="#"
+                New to Nivya?{" "}
+                <button
+                  type="button"
+                  onClick={() => {
+                    setStep("phone");
+                    setOtp("");
+                    setError("");
+                  }}
                   className="font-semibold text-evergreen underline-offset-4 transition-colors hover:text-evergreen-deep hover:underline"
                 >
-                  {c.footAction}
-                </a>
+                  Create an account
+                </button>
               </p>
             </div>
           </div>
 
-          {/* fine print */}
           <p className="mx-auto max-w-[440px] text-center font-sans text-[11.5px] leading-relaxed text-ink-mute">
-            Nivya is currently in development and access is limited before
-            launch. Mutual fund investments are subject to market risks. Read all
-            scheme-related documents carefully.
+            Mutual fund investments are subject to market risks. Read all
+            scheme-related documents carefully. Nivya distributes Regular plans
+            only.
           </p>
         </main>
       </div>

@@ -31,10 +31,6 @@
     @apply border-border;
   }
 
-  html {
-    scroll-behavior: auto;
-  }
-
   body {
     @apply bg-paper text-ink antialiased;
     font-family: 'Hanken Grotesk Variable', 'Hanken Grotesk', system-ui, sans-serif;
@@ -43,6 +39,12 @@
       radial-gradient(circle at 18% 12%, rgba(180,146,90,0.05) 0%, transparent 42%),
       radial-gradient(circle at 86% 88%, rgba(15,110,94,0.045) 0%, transparent 46%);
     background-attachment: fixed;
+    overflow-x: hidden;
+  }
+
+  html {
+    scroll-behavior: auto;
+    overflow-x: hidden;
   }
 
   .font-display {
@@ -62,14 +64,30 @@
 }
 
 @layer components {
+  /* Single alignment rail: equal left/right gutters on every breakpoint */
   .content-container {
-    @apply max-w-content mx-auto px-6 md:px-8;
+    @apply mx-auto w-full;
+    max-width: 1440px;
+    padding-left: clamp(1.25rem, 4vw, 3.5rem);
+    padding-right: clamp(1.25rem, 4vw, 3.5rem);
+  }
+
+  /* Readable measure for long-form blocks that still sit inside the rail */
+  .content-measure {
+    @apply mx-auto w-full;
+    max-width: 42rem;
+  }
+
+  /* Section vertical rhythm: fluid between mobile and desktop */
+  .section-y {
+    padding-top: clamp(4.5rem, 8vw, 7.5rem);
+    padding-bottom: clamp(4.5rem, 8vw, 7.5rem);
   }
 
   /* Section eyebrow: small caps mono with a brass tick */
   .eyebrow {
-    @apply inline-flex items-center gap-2.5 font-mono uppercase tracking-[0.18em];
-    font-size: 11.5px;
+    @apply inline-flex items-center gap-2.5 font-mono font-medium uppercase tracking-[0.16em];
+    font-size: clamp(12px, 1.1vw, 14px);
     color: #8C8676;
   }
 
@@ -133,7 +151,7 @@
   }
 }
 
-/* Range slider — brass track fill on ivory */
+/* Range slider : brass track fill on ivory */
 input[type="range"] {
   -webkit-appearance: none;
   appearance: none;

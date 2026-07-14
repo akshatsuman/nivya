@@ -11,19 +11,19 @@ const steps = [
     no: "01",
     icon: FileCheck2,
     title: "Finish KYC in minutes",
-    body: "Verify with Aadhaar and PAN. It's fully paperless, and you'll likely be done in under five minutes — no branch visit, no forms in triplicate.",
+    body: "Verify with Aadhaar and PAN. It is paperless and usually takes a few minutes.",
   },
   {
     no: "02",
     icon: Target,
-    title: "Pick a goal, or a fund",
-    body: "Let Nivya map a fund mix to a goal, or choose your own across 38 fund houses. Either way you're on direct plans, so the costs stay low.",
+    title: "Pick a goal or a fund",
+    body: "Match funds to a goal, or pick a scheme yourself.",
   },
   {
     no: "03",
     icon: CalendarCheck,
-    title: "Automate, then carry on",
-    body: "Set the date and the amount. We handle the instalments, the unit allotments and the statements — you simply stay invested.",
+    title: "Set up and continue",
+    body: "Choose the date and amount. We run the SIP and send statements.",
   },
 ];
 
@@ -65,22 +65,18 @@ export default function HowItWorksSection() {
   }, []);
 
   return (
-    <section id="how" ref={sectionRef} className="w-full bg-paper py-20 md:py-28">
+    <section id="how" ref={sectionRef} className="w-full bg-paper-deep section-y">
       <div className="content-container">
-        <div ref={headingRef} className="max-w-[620px]">
+        <div ref={headingRef} className="mx-auto w-full max-w-2xl text-center">
           <div className="opacity-0">
-            <SectionOverline text="How it works" align="left" />
+            <SectionOverline text="How it works" align="center" />
           </div>
           <h2 className="mt-4 font-display text-h1 text-h1-mobile md:text-h1 text-ink opacity-0">
-            Three steps, then it runs itself
+            Three steps to get started.
           </h2>
-          <p className="mt-4 font-sans text-body text-ink-soft opacity-0">
-            Getting started should be the easy part. After that, the discipline
-            is automatic and the decisions are few.
-          </p>
         </div>
 
-        <div ref={gridRef} className="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-large border border-line bg-line md:grid-cols-3">
+        <div ref={gridRef} className="mt-10 grid grid-cols-1 gap-px overflow-hidden rounded-large border border-line bg-line sm:mt-14 md:grid-cols-3">
           {steps.map(({ no, icon: Icon, title, body }) => (
             <div key={no} className="bg-paper-raised p-8 md:p-9">
               <div className="flex items-center justify-between">

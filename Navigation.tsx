@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
 const navLinks = [
   { label: "How it works", href: "#how" },
   { label: "Why Nivya", href: "#why" },
-  { label: "SIP calculator", href: "#calculator" },
+  { label: "Portfolio", href: "#portfolio" },
   { label: "Questions", href: "#faq" },
 ];
 
@@ -57,7 +57,7 @@ export default function Navigation() {
         )}
       >
         <div className="content-container h-full flex items-center justify-between">
-          {/* Logo + wordmark — now reads on the ivory ground */}
+          {/* Logo + wordmark : now reads on the ivory ground */}
           <a href="#" className="flex items-center gap-2.5">
             <img src="/assets/logo.png" alt="Nivya" className="h-8 w-auto" />
             <span className="font-display text-[22px] font-600 leading-none text-ink tracking-[-0.01em]">
@@ -88,10 +88,10 @@ export default function Navigation() {
               Log in
             </Link>
             <button
-              onClick={() => handleNavClick("#calculator")}
+              onClick={() => handleNavClick("#portfolio")}
               className="hidden md:inline-flex items-center justify-center rounded-full bg-evergreen px-5 py-2.5 font-sans text-[14px] font-semibold text-paper-raised transition-all duration-200 hover:bg-evergreen-deep cursor-pointer shadow-[0_8px_20px_-12px_rgba(15,110,94,0.8)]"
             >
-              Start a SIP
+              View portfolio
             </button>
 
             <button
@@ -121,10 +121,10 @@ export default function Navigation() {
             </button>
           ))}
           <button
-            onClick={() => handleNavClick("#calculator")}
+            onClick={() => handleNavClick("#portfolio")}
             className="mobile-link mt-4 rounded-full bg-evergreen px-8 py-3.5 font-sans font-semibold text-paper-raised cursor-pointer"
           >
-            Start a SIP
+            View portfolio
           </button>
           <Link
             to="/login"

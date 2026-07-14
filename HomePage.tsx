@@ -4,11 +4,12 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/sections/HeroSection";
-import TrustStrip from "@/components/TrustStrip";
 import TrustStatsSection from "@/sections/TrustStatsSection";
 import FeatureHighlightsSection from "@/sections/FeatureHighlightsSection";
 import HowItWorksSection from "@/sections/HowItWorksSection";
-import CalculatorSection from "@/sections/CalculatorSection";
+import RankingMechanismSection from "@/sections/RankingMechanismSection";
+import PortfolioInsightsSection from "@/sections/PortfolioInsightsSection";
+import AskNivSection from "@/sections/AskNivSection";
 import TestimonialsSection from "@/sections/TestimonialsSection";
 import FAQSection from "@/sections/FAQSection";
 import Footer from "@/components/Footer";
@@ -17,13 +18,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function HomePage() {
   useEffect(() => {
-    // Initialize Lenis smooth scroll
     const lenis = new Lenis({
       lerp: 0.1,
       smoothWheel: true,
     });
 
-    // Sync Lenis with GSAP ScrollTrigger
     lenis.on("scroll", ScrollTrigger.update);
 
     gsap.ticker.add((time) => {
@@ -43,11 +42,12 @@ export default function HomePage() {
       <Navigation />
       <main>
         <HeroSection />
-        <TrustStrip />
-        <TrustStatsSection />
         <FeatureHighlightsSection />
+        <TrustStatsSection />
         <HowItWorksSection />
-        <CalculatorSection />
+        <RankingMechanismSection />
+        <PortfolioInsightsSection />
+        <AskNivSection />
         <TestimonialsSection />
         <FAQSection />
       </main>

@@ -6,7 +6,7 @@ import { Linkedin, Twitter, Instagram, Facebook, ShieldCheck } from "lucide-reac
 
 gsap.registerPlugin(ScrollTrigger);
 
-const investLinks = ["Mutual funds", "SIPs", "Goal planning", "Fund explorer", "SIP calculator", "Portfolio health check"];
+const investLinks = ["Mutual funds", "SIPs", "Goal planning", "Fund explorer", "Portfolio insights", "Portfolio health check"];
 const companyLinks = ["About Nivya", "How we make money", "Press", "Careers", "Contact"];
 const legalLinks = ["Terms of use", "Privacy policy", "Regulatory disclosures", "Grievance redressal", "Scheme documents"];
 
@@ -107,22 +107,6 @@ export default function Footer() {
             scheme-related documents carefully before investing. Past performance
             is not indicative of future returns. Figures and projections shown on
             this page are illustrative only.
-          </p>
-        </div>
-
-        {/* Pre-launch disclaimer (mandatory) */}
-        <div className="mt-6 rounded-medium border border-gold/20 bg-gold/[0.04] px-5 py-4">
-          <p className="mb-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-gold-soft">
-            Disclaimer
-          </p>
-          <p className="font-sans text-[12.5px] leading-relaxed text-paper/55">
-            Nivya is currently in development. The content, designs, features,
-            calculators, and product previews displayed on this website are
-            intended for demonstration, visualisation, and experience purposes
-            only. The complete product and services will be launched soon.
-            Nothing on this website should be considered financial advice, an
-            offer, or a commitment to provide financial products or services at
-            this stage.
           </p>
         </div>
 

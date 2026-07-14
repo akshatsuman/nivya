@@ -10,14 +10,6 @@ interface TestimonialCardProps {
 export default function TestimonialCard({ quote, name, detail, avatar }: TestimonialCardProps) {
   return (
     <div className="relative flex h-full flex-col overflow-hidden rounded-large border border-line bg-paper-raised p-8 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover md:p-9">
-      {/* serif quote watermark */}
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute right-5 top-1 select-none font-display text-[96px] leading-none text-gold/15"
-      >
-        &rdquo;
-      </span>
-
       <div className="flex items-center gap-0.5 text-gold">
         {[...Array(5)].map((_, i) => (
           <Star key={i} className="h-4 w-4 fill-current" />

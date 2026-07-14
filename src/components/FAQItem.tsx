@@ -15,20 +15,23 @@ export default function FAQItem({ question, answer, isOpen, onToggle }: FAQItemP
   return (
     <div
       className={cn(
-        "overflow-hidden rounded-medium border bg-paper-raised transition-all duration-300",
-        isOpen ? "border-line-strong" : "border-line hover:border-line-strong"
+        "overflow-hidden rounded-[10px] bg-paper-deep/70 transition-colors duration-300",
+        isOpen && "bg-paper-deep"
       )}
     >
       <button
         onClick={onToggle}
-        className="flex w-full cursor-pointer items-center justify-between rounded-medium px-6 py-5 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-evergreen focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+        className="flex w-full cursor-pointer items-center justify-between gap-4 px-5 py-4 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-evergreen focus-visible:ring-offset-2 focus-visible:ring-offset-paper sm:px-6 sm:py-[18px]"
       >
-        <span className="pr-4 font-sans text-[16px] font-600 text-ink">{question}</span>
+        <span className="font-sans text-[15px] font-600 leading-snug text-ink sm:text-[15.5px]">
+          {question}
+        </span>
         <Plus
           className={cn(
-            "h-5 w-5 flex-shrink-0 text-evergreen transition-transform duration-300",
-            isOpen && "rotate-45"
+            "h-[18px] w-[18px] shrink-0 text-ink transition-transform duration-300",
+            isOpen && "rotate-45 text-evergreen"
           )}
+          strokeWidth={1.75}
         />
       </button>
       <div
@@ -37,10 +40,8 @@ export default function FAQItem({ question, answer, isOpen, onToggle }: FAQItemP
         style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
       >
         <div className="overflow-hidden">
-          <div className="px-6 pb-5 pt-0">
-            <div className="border-t border-line pt-4">
-              <p className="font-sans text-[15px] leading-relaxed text-ink-soft">{answer}</p>
-            </div>
+          <div className="px-5 pb-4 sm:px-6 sm:pb-5">
+            <p className="font-sans text-[14.5px] leading-relaxed text-ink-soft">{answer}</p>
           </div>
         </div>
       </div>

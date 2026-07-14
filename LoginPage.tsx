@@ -69,13 +69,13 @@ export default function LoginPage() {
   const handleSubmit = () => {
     if (submitting) return;
     setSubmitting(true);
-    // Demo only — wire to your auth endpoint here.
+    // Demo only : wire to your auth endpoint here.
     setTimeout(() => setSubmitting(false), 1600);
   };
 
   return (
     <div className="relative min-h-screen w-full bg-paper text-ink">
-      {/* warm paper atmosphere — same grain as the hero */}
+      {/* warm paper atmosphere : same grain as the hero */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0"
@@ -104,7 +104,7 @@ export default function LoginPage() {
             className="ledger-lines pointer-events-none absolute inset-0 opacity-[0.5]"
           />
 
-          {/* Top — wordmark */}
+          {/* Top : wordmark */}
           <div className="relative flex items-center gap-3">
             <span className="grid h-10 w-10 place-items-center rounded-[12px] bg-paper-raised shadow-[0_10px_30px_-14px_rgba(0,0,0,0.6)]">
               <img src="/assets/logo.png" alt="" className="h-6 w-auto" />
@@ -114,7 +114,7 @@ export default function LoginPage() {
             </span>
           </div>
 
-          {/* Middle — thesis */}
+          {/* Middle : thesis */}
           <div className="relative max-w-[440px]">
             <span className="inline-flex items-center gap-2.5 font-mono text-[11.5px] uppercase tracking-[0.18em] text-gold-soft">
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-teal" />
@@ -125,12 +125,12 @@ export default function LoginPage() {
               <span className="italic text-teal">tended,</span> not timed.
             </h1>
             <p className="mt-5 max-w-[400px] font-sans text-[15.5px] leading-relaxed text-paper/65">
-              Sign in to a calm, transparent place for your mutual funds —
+              Sign in to a calm, transparent place for your mutual funds:
               direct plans, automated SIPs, and fees you can actually see.
             </p>
           </div>
 
-          {/* Bottom — trust */}
+          {/* Bottom : trust */}
           <div className="relative flex flex-wrap items-center gap-x-7 gap-y-3">
             <span className="inline-flex items-center gap-2 font-sans text-[13.5px] font-medium text-paper/75">
               <ShieldCheck size={17} className="text-teal" />

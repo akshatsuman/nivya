@@ -10,22 +10,35 @@ gsap.registerPlugin(ScrollTrigger);
 const navLinks = [
   { label: "How it works", href: "#how" },
   { label: "Why Nivya", href: "#why" },
-  { label: "SIP calculator", href: "#calculator" },
+  { label: "Portfolio", href: "#portfolio" },
   { label: "Questions", href: "#faq" },
 ];
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
+  const [showNavSignIn, setShowNavSignIn] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const trigger = ScrollTrigger.create({
+    const scrollTrigger = ScrollTrigger.create({
       start: 60,
       onUpdate: (self) => setScrolled(self.scroll() > 60),
     });
-    return () => trigger.kill();
+
+    // Show nav Sign in as the hero Sign in form scrolls up under the nav
+    const signInTrigger = ScrollTrigger.create({
+      trigger: "#hero-signin",
+      start: "top 68px",
+      onEnter: () => setShowNavSignIn(true),
+      onLeaveBack: () => setShowNavSignIn(false),
+    });
+
+    return () => {
+      scrollTrigger.kill();
+      signInTrigger.kill();
+    };
   }, []);
 
   useEffect(() => {
@@ -57,7 +70,6 @@ export default function Navigation() {
         )}
       >
         <div className="content-container h-full flex items-center justify-between">
-          {/* Logo + wordmark — now reads on the ivory ground */}
           <a href="#" className="flex items-center gap-2.5">
             <img src="/assets/logo.png" alt="Nivya" className="h-8 w-auto" />
             <span className="font-display text-[22px] font-600 leading-none text-ink tracking-[-0.01em]">
@@ -65,7 +77,6 @@ export default function Navigation() {
             </span>
           </a>
 
-          {/* Desktop links */}
           <div className="hidden md:flex items-center gap-9">
             {navLinks.map((link) => (
               <button
@@ -79,13 +90,19 @@ export default function Navigation() {
             ))}
           </div>
 
-          {/* CTA + mobile toggle */}
           <div className="flex items-center gap-4">
             <Link
               to="/login"
-              className="hidden md:inline-flex items-center justify-center rounded-full bg-evergreen px-5 py-2.5 font-sans text-[14px] font-semibold text-paper-raised transition-all duration-200 hover:bg-evergreen-deep cursor-pointer shadow-[0_8px_20px_-12px_rgba(15,110,94,0.8)]"
+              className={cn(
+                "hidden md:inline-flex items-center justify-center rounded-full bg-evergreen px-5 py-2.5 font-sans text-[14px] font-semibold text-paper-raised shadow-[0_8px_20px_-12px_rgba(15,110,94,0.8)] transition-all duration-300 hover:bg-evergreen-deep",
+                showNavSignIn
+                  ? "pointer-events-auto translate-y-0 opacity-100"
+                  : "pointer-events-none -translate-y-1 opacity-0"
+              )}
+              tabIndex={showNavSignIn ? 0 : -1}
+              aria-hidden={!showNavSignIn}
             >
-              Login
+              Sign in
             </Link>
 
             <button
@@ -99,7 +116,6 @@ export default function Navigation() {
         </div>
       </nav>
 
-      {/* Mobile overlay */}
       {mobileOpen && (
         <div
           ref={mobileMenuRef}
@@ -114,13 +130,15 @@ export default function Navigation() {
               {link.label}
             </button>
           ))}
-          <Link
-            to="/login"
-            onClick={() => setMobileOpen(false)}
-            className="mobile-link mt-4 rounded-full bg-evergreen px-8 py-3.5 font-sans font-semibold text-paper-raised cursor-pointer"
-          >
-            Login
-          </Link>
+          {showNavSignIn ? (
+            <Link
+              to="/login"
+              onClick={() => setMobileOpen(false)}
+              className="mobile-link mt-4 rounded-full bg-evergreen px-8 py-3.5 font-sans font-semibold text-paper-raised cursor-pointer"
+            >
+              Sign in
+            </Link>
+          ) : null}
         </div>
       )}
     </>

@@ -39,7 +39,7 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
 
-        /* ── Nivya — private-wealth-office palette ─────────────────
+        /* ── Nivya : private-wealth-office palette ─────────────────
            Warm ivory paper, deep ink-navy, evergreen growth, brass.  */
         paper: "#F7F3EA",          // page background (warm bone)
         "paper-raised": "#FCFAF4", // cards / raised surfaces
@@ -50,7 +50,7 @@ module.exports = {
         evergreen: "#0F6E5E",      // growth accent / primary CTA
         "evergreen-deep": "#0B5749", // CTA hover
         teal: "#1AA08C",           // bright highlight (echoes the logo)
-        gold: "#B4925A",           // brass — premium, used sparingly
+        gold: "#B4925A",           // brass : premium, used sparingly
         "gold-soft": "#CBB07E",
         line: "#E7DECC",           // warm hairline on paper
         "line-strong": "#DCD1B9",
@@ -102,7 +102,7 @@ module.exports = {
         "card-gap-mobile": "18px",
       },
       maxWidth: {
-        content: "1180px",
+        content: "1440px",
       },
       keyframes: {
         "accordion-down": {
@@ -119,7 +119,7 @@ module.exports = {
         },
         "float-soft": {
           "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-9px)" },
+          "50%": { transform: "translateY(-4px)" },
         },
         "draw-line": {
           from: { strokeDashoffset: "1" },
@@ -130,7 +130,7 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "caret-blink": "caret-blink 1.25s ease-out infinite",
-        "float-soft": "float-soft 6s ease-in-out infinite",
+        "float-soft": "float-soft 14s ease-in-out infinite",
       },
     },
   },

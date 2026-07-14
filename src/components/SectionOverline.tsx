@@ -18,10 +18,10 @@ export default function SectionOverline({
         align === "center" ? "justify-center" : "justify-start"
       )}
     >
-      <span className="inline-block h-[6px] w-[6px] rotate-45 bg-gold" />
+      <span className="inline-block h-[7px] w-[7px] rotate-45 bg-gold" />
       <span
         className={cn(
-          "font-mono text-[11.5px] uppercase tracking-[0.18em]",
+          "font-mono text-[14px] font-medium uppercase tracking-[0.16em]",
           light ? "text-gold-soft" : "text-ink-mute"
         )}
       >
