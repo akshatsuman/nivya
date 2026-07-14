@@ -31,7 +31,7 @@ export default function NotificationsScreen() {
         </button>
       ),
     },
-    []
+    [],
   );
 
   return (
@@ -48,7 +48,11 @@ export default function NotificationsScreen() {
           {notifications.map((n) => {
             const Icon = ICONS[n.kind] ?? Sparkles;
             return (
-              <div key={n.id} className={`n-alert ${n.tone}`} style={{ opacity: n.read ? 0.72 : 1 }}>
+              <div
+                key={n.id}
+                className={`n-alert ${n.tone}`}
+                style={{ opacity: n.read ? 0.72 : 1 }}
+              >
                 <span className="n-alert-icon">
                   <Icon size={14} />
                 </span>

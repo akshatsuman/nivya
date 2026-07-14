@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components -- context module exports provider + hook */
 import { createContext, useCallback, useContext, useMemo, useState, type ReactNode } from "react";
 import {
   FUNDS,
@@ -93,7 +94,8 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
   const [selectedFundId, setSelectedFundId] = useState<string | null>(null);
   const [kycStatus, setKycStatus] = useState<KycStatus>("pending");
   const [onboardingDone, setOnboardingDone] = useState<boolean>(
-    () => typeof window !== "undefined" && window.localStorage.getItem("nivya-onboarding-done") === "1"
+    () =>
+      typeof window !== "undefined" && window.localStorage.getItem("nivya-onboarding-done") === "1",
   );
 
   const holdings: HoldingView[] = useMemo(() => {
@@ -124,16 +126,19 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
       .sort((a, b) => b.currentValue - a.currentValue);
   }, [rawHoldings]);
 
-  const totalInvested = useMemo(() => holdings.reduce((s, h) => s + h.investedValue, 0), [holdings]);
-  const totalCurrentValue = useMemo(() => holdings.reduce((s, h) => s + h.currentValue, 0), [holdings]);
+  const totalInvested = useMemo(
+    () => holdings.reduce((s, h) => s + h.investedValue, 0),
+    [holdings],
+  );
+  const totalCurrentValue = useMemo(
+    () => holdings.reduce((s, h) => s + h.currentValue, 0),
+    [holdings],
+  );
   const totalGainValue = totalCurrentValue - totalInvested;
   const totalGainPct = totalInvested > 0 ? (totalGainValue / totalInvested) * 100 : 0;
 
   const pushNotification = useCallback((n: Omit<AppNotification, "id" | "date" | "read">) => {
-    setNotifications((prev) => [
-      { ...n, id: uid("n"), date: "Just now", read: false },
-      ...prev,
-    ]);
+    setNotifications((prev) => [{ ...n, id: uid("n"), date: "Just now", read: false }, ...prev]);
   }, []);
 
   const updatePlanStatus = useCallback(
@@ -152,15 +157,19 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
         });
       }
     },
-    [plans, pushNotification]
+    [plans, pushNotification],
   );
 
   const removePlan = useCallback((planId: string) => {
-    setPlans((prev) => prev.map((p) => (p.id === planId ? { ...p, status: "Cancelled" as PlanStatus } : p)));
+    setPlans((prev) =>
+      prev.map((p) => (p.id === planId ? { ...p, status: "Cancelled" as PlanStatus } : p)),
+    );
   }, []);
 
   const toggleWatchlist = useCallback((fundId: string) => {
-    setWatchlist((prev) => (prev.includes(fundId) ? prev.filter((id) => id !== fundId) : [...prev, fundId]));
+    setWatchlist((prev) =>
+      prev.includes(fundId) ? prev.filter((id) => id !== fundId) : [...prev, fundId],
+    );
   }, []);
 
   const isWatchlisted = useCallback((fundId: string) => watchlist.includes(fundId), [watchlist]);
@@ -208,7 +217,9 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
           if (existing) {
             const newUnits = existing.units + units;
             const newAvgNav = (existing.avgNav * existing.units + fund.nav * units) / newUnits;
-            return prev.map((h) => (h.fundId === input.fundId ? { ...h, units: newUnits, avgNav: newAvgNav } : h));
+            return prev.map((h) =>
+              h.fundId === input.fundId ? { ...h, units: newUnits, avgNav: newAvgNav } : h,
+            );
           }
           return [...prev, { fundId: input.fundId, units, avgNav: fund.nav }];
         });
@@ -222,7 +233,7 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
                 const remainingUnits = Math.max(0, h.units - units);
                 return { ...h, units: remainingUnits };
               })
-              .filter((h) => h.units > 0.001)
+              .filter((h) => h.units > 0.001),
           );
           pushNotification({
             kind: "order",
@@ -250,7 +261,7 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
               const units = Math.min(h.units, input.amount / fund.nav);
               return { ...h, units: Math.max(0, h.units - units) };
             })
-            .filter((h) => h.units > 0.001)
+            .filter((h) => h.units > 0.001),
         );
         pushNotification({
           kind: "order",
@@ -265,7 +276,7 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
       const newPlan: InvestmentPlan = {
         id: uid("plan"),
         type: planType,
-        fundId: planType === "STP" ? input.toFundId ?? input.fundId : input.fundId,
+        fundId: planType === "STP" ? (input.toFundId ?? input.fundId) : input.fundId,
         fromFundId: planType === "STP" ? input.fundId : undefined,
         amount: input.amount,
         frequency: input.frequency ?? "Monthly",
@@ -284,7 +295,7 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
       });
       return { ok: true, message: `${planType} set up (demo).` };
     },
-    [pushNotification]
+    [pushNotification],
   );
 
   const value: AppStateShape = {

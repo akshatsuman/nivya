@@ -38,8 +38,8 @@ const DEMO_EXCHANGES: DemoExchange[] = [
     body: (
       <>
         5Y CAGR <span className="font-600">14.2%</span> vs category{" "}
-        <span className="font-600">12.1%</span>. Ahead of{" "}
-        <span className="font-600">78%</span> of peers in the same category.
+        <span className="font-600">12.1%</span>. Ahead of <span className="font-600">78%</span> of
+        peers in the same category.
       </>
     ),
     metrics: [
@@ -50,8 +50,8 @@ const DEMO_EXCHANGES: DemoExchange[] = [
     followUp: "Is that on a rolling basis?",
     followBody: (
       <>
-        Yes — rolling 5Y win rate is <span className="font-600">71%</span> of monthly windows
-        vs category median.
+        Yes — rolling 5Y win rate is <span className="font-600">71%</span> of monthly windows vs
+        category median.
       </>
     ),
   },
@@ -130,9 +130,7 @@ const DEMO_EXCHANGES: DemoExchange[] = [
     ],
     followUp: "Does import move my money?",
     followBody: (
-      <>
-        No. Import is a statement view only. Money and units remain with the AMC / RTA.
-      </>
+      <>No. Import is a statement view only. Money and units remain with the AMC / RTA.</>
     ),
   },
   {
@@ -142,8 +140,8 @@ const DEMO_EXCHANGES: DemoExchange[] = [
     body: (
       <>
         Mid-cap sleeve returned <span className="font-600">−2.4%</span> this quarter and pulled
-        folio XIRR down by about <span className="font-600">0.6pp</span>. Large-cap and debt
-        offsets kept overall XIRR at <span className="font-600">12.4%</span>.
+        folio XIRR down by about <span className="font-600">0.6pp</span>. Large-cap and debt offsets
+        kept overall XIRR at <span className="font-600">12.4%</span>.
       </>
     ),
     metrics: [
@@ -278,7 +276,7 @@ function PromptRail({
                 "w-full cursor-pointer rounded-[14px] border px-4 py-3.5 text-left font-sans text-[14.5px] leading-snug transition-colors duration-200 sm:py-4 sm:text-[15px]",
                 active
                   ? "border-evergreen/40 bg-evergreen/10 text-ink shadow-[0_8px_20px_-16px_rgba(15,110,94,0.55)]"
-                  : "border-line bg-paper-raised text-ink-soft hover:border-line-strong hover:bg-paper-raised hover:text-ink"
+                  : "border-line bg-paper-raised text-ink-soft hover:border-line-strong hover:bg-paper-raised hover:text-ink",
               )}
             >
               {p.question}
@@ -311,7 +309,7 @@ export default function AskNivSection() {
           stagger: 0.1,
           ease: "power2.out",
           scrollTrigger: { trigger: sectionRef.current, start: "top 80%", once: true },
-        }
+        },
       );
       gsap.fromTo(
         stageRef.current,
@@ -322,7 +320,7 @@ export default function AskNivSection() {
           duration: 0.7,
           ease: "power2.out",
           scrollTrigger: { trigger: stageRef.current, start: "top 88%", once: true },
-        }
+        },
       );
     }, sectionRef);
     return () => ctx.revert();
@@ -333,7 +331,7 @@ export default function AskNivSection() {
     gsap.fromTo(
       replyRef.current,
       { opacity: 0.35, y: 8 },
-      { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }
+      { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" },
     );
   }, [activeId]);
 
@@ -390,8 +388,7 @@ export default function AskNivSection() {
             <div
               className="relative flex min-h-[520px] w-full flex-col overflow-hidden rounded-[26px] border border-line-strong px-5 py-5 sm:min-h-[560px] sm:px-7 sm:py-6 lg:min-h-0"
               style={{
-                background:
-                  "linear-gradient(165deg, #FCFAF4 0%, #F7F3EA 55%, #F3EBD8 100%)",
+                background: "linear-gradient(165deg, #FCFAF4 0%, #F7F3EA 55%, #F3EBD8 100%)",
                 boxShadow: "0 28px 60px -36px rgba(20,35,59,0.35)",
               }}
             >
@@ -426,7 +423,9 @@ export default function AskNivSection() {
                   <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-evergreen">
                     {active.label}
                   </p>
-                  <p className="mt-2 font-sans text-[15px] leading-relaxed text-ink">{active.body}</p>
+                  <p className="mt-2 font-sans text-[15px] leading-relaxed text-ink">
+                    {active.body}
+                  </p>
                   <div className="mt-3.5 flex flex-wrap gap-2 border-t border-line pt-3.5">
                     {active.metrics.map((m) => (
                       <span
@@ -448,7 +447,9 @@ export default function AskNivSection() {
                       </p>
                     </div>
                     <div className="mr-6 rounded-[18px] rounded-bl-md border border-line bg-paper-raised/90 px-4 py-3.5 sm:mr-8">
-                      <p className="font-sans text-[14.5px] leading-snug text-ink">{active.followBody}</p>
+                      <p className="font-sans text-[14.5px] leading-snug text-ink">
+                        {active.followBody}
+                      </p>
                     </div>
                   </>
                 ) : null}
@@ -479,7 +480,7 @@ export default function AskNivSection() {
                     "w-full cursor-pointer rounded-[14px] border px-4 py-3.5 text-left font-sans text-[14px] leading-snug transition-colors duration-200",
                     activePrompt
                       ? "border-evergreen/40 bg-evergreen/10 text-ink"
-                      : "border-line bg-paper-raised text-ink-soft hover:border-line-strong hover:text-ink"
+                      : "border-line bg-paper-raised text-ink-soft hover:border-line-strong hover:text-ink",
                   )}
                 >
                   {p.question}
@@ -492,7 +493,9 @@ export default function AskNivSection() {
             {CAPABILITIES.map((cap) => (
               <div key={cap.title} className="bg-paper-raised px-4 py-4 sm:px-5 sm:py-5">
                 <p className="font-sans text-[14.5px] font-600 text-ink">{cap.title}</p>
-                <p className="mt-1 font-sans text-[13px] leading-snug text-ink-soft">{cap.detail}</p>
+                <p className="mt-1 font-sans text-[13px] leading-snug text-ink-soft">
+                  {cap.detail}
+                </p>
               </div>
             ))}
           </div>

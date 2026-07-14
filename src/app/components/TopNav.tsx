@@ -26,7 +26,11 @@ export default function TopNav() {
     <header className="n-topnav">
       <div className="n-topnav-inner">
         <button type="button" className="n-topnav-brand" onClick={() => navigate("/app")}>
-          <img src="/assets/logo.png" alt="" className="n-topnav-logo" />
+          <img
+            src={`${import.meta.env.BASE_URL}assets/logo.png`}
+            alt="Nivya"
+            className="n-topnav-logo"
+          />
           <span className="n-topnav-wordmark">Nivya</span>
         </button>
 

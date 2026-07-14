@@ -44,7 +44,7 @@ export default function HowItWorksSection() {
           stagger: 0.1,
           ease: "power2.out",
           scrollTrigger: { trigger: headingRef.current, start: "top 85%", once: true },
-        }
+        },
       );
       if (gridRef.current) {
         gsap.fromTo(
@@ -57,7 +57,7 @@ export default function HowItWorksSection() {
             stagger: 0.14,
             ease: "power2.out",
             scrollTrigger: { trigger: gridRef.current, start: "top 84%", once: true },
-          }
+          },
         );
       }
     }, sectionRef);
@@ -76,7 +76,10 @@ export default function HowItWorksSection() {
           </h2>
         </div>
 
-        <div ref={gridRef} className="mt-10 grid grid-cols-1 gap-px overflow-hidden rounded-large border border-line bg-line sm:mt-14 md:grid-cols-3">
+        <div
+          ref={gridRef}
+          className="mt-10 grid grid-cols-1 gap-px overflow-hidden rounded-large border border-line bg-line sm:mt-14 md:grid-cols-3"
+        >
           {steps.map(({ no, icon: Icon, title, body }) => (
             <div key={no} className="bg-paper-raised p-8 md:p-9">
               <div className="flex items-center justify-between">
@@ -87,12 +90,8 @@ export default function HowItWorksSection() {
                   <Icon className="h-5 w-5 text-evergreen" strokeWidth={1.6} />
                 </span>
               </div>
-              <h3 className="mt-6 font-display text-[22px] font-500 text-ink">
-                {title}
-              </h3>
-              <p className="mt-2.5 font-sans text-[14.5px] leading-relaxed text-ink-soft">
-                {body}
-              </p>
+              <h3 className="mt-6 font-display text-[22px] font-500 text-ink">{title}</h3>
+              <p className="mt-2.5 font-sans text-[14.5px] leading-relaxed text-ink-soft">{body}</p>
             </div>
           ))}
         </div>

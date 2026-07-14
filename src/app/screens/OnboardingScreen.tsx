@@ -69,7 +69,8 @@ export default function OnboardingScreen() {
         Enter the app
       </button>
       <p className="n-disclosure" style={{ marginTop: 12, textAlign: "center" }}>
-        Mutual fund investments are subject to market risks. Read all scheme-related documents carefully.
+        Mutual fund investments are subject to market risks. Read all scheme-related documents
+        carefully.
       </p>
     </div>
   );

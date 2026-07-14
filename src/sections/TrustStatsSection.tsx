@@ -59,7 +59,7 @@ export default function TrustStatsSection() {
           stagger: 0.1,
           ease: "power2.out",
           scrollTrigger: { trigger: sectionRef.current, start: "top 85%", once: true },
-        }
+        },
       );
       if (gridRef.current) {
         gsap.fromTo(
@@ -72,7 +72,7 @@ export default function TrustStatsSection() {
             stagger: 0.12,
             ease: "power2.out",
             scrollTrigger: { trigger: gridRef.current, start: "top 85%", once: true },
-          }
+          },
         );
       }
     }, sectionRef);

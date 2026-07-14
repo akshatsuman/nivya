@@ -1,13 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, Navigate, useLocation, useNavigate } from "react-router";
-import {
-  ShieldCheck,
-  ArrowRight,
-  ArrowLeft,
-  Loader2,
-  Lock,
-  Smartphone,
-} from "lucide-react";
+import { ShieldCheck, ArrowRight, ArrowLeft, Loader2, Lock, Smartphone } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/app/Auth";
 
@@ -24,26 +17,18 @@ export default function LoginPage() {
       ? (location.state as { phone: string }).phone.replace(/\D/g, "").slice(0, 10)
       : "";
 
-  const [step, setStep] = useState<"phone" | "otp">(
-    incomingPhone.length === 10 ? "otp" : "phone"
-  );
+  const [step, setStep] = useState<"phone" | "otp">(incomingPhone.length === 10 ? "otp" : "phone");
   const [phone, setPhone] = useState(incomingPhone);
   const [otp, setOtp] = useState("");
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const [resendIn, setResendIn] = useState(0);
+  const [resendIn, setResendIn] = useState(incomingPhone.length === 10 ? RESEND_SECONDS : 0);
 
   useEffect(() => {
     const t = requestAnimationFrame(() => setMounted(true));
     return () => cancelAnimationFrame(t);
   }, []);
-
-  useEffect(() => {
-    if (incomingPhone.length === 10) {
-      setResendIn(RESEND_SECONDS);
-    }
-  }, [incomingPhone]);
 
   useEffect(() => {
     if (resendIn <= 0) return;
@@ -110,8 +95,7 @@ export default function LoginPage() {
         <aside
           className="relative hidden overflow-hidden lg:flex lg:flex-col lg:justify-between lg:p-14 xl:p-16"
           style={{
-            background:
-              "linear-gradient(165deg, #FFFDF8 0%, #F8F1E4 48%, #F3E9D8 100%)",
+            background: "linear-gradient(165deg, #FFFDF8 0%, #F8F1E4 48%, #F3E9D8 100%)",
           }}
         >
           <div
@@ -124,12 +108,15 @@ export default function LoginPage() {
                 "radial-gradient(40% 36% at 50% 50%, rgba(255,255,255,0.55) 0%, transparent 75%)",
             }}
           />
-          <div aria-hidden="true" className="ledger-lines pointer-events-none absolute inset-0 opacity-[0.22]" />
+          <div
+            aria-hidden="true"
+            className="ledger-lines pointer-events-none absolute inset-0 opacity-[0.22]"
+          />
 
           <div className="relative flex items-center gap-3.5">
             <span className="grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-[13px] bg-white shadow-[0_8px_24px_-12px_rgba(20,35,59,0.28)] ring-1 ring-line">
               <img
-                src="/assets/logo.png"
+                src={`${import.meta.env.BASE_URL}assets/logo.png`}
                 alt=""
                 className="h-[78%] w-[78%] object-cover"
               />
@@ -149,8 +136,8 @@ export default function LoginPage() {
               <span className="italic text-evergreen">Invest transparently.</span>
             </h1>
             <p className="mt-5 max-w-[400px] font-sans text-[15.5px] leading-relaxed text-ink-soft">
-              Sign in with OTP to explore Regular mutual funds, manage SIPs, and
-              track your portfolio.
+              Sign in with OTP to explore Regular mutual funds, manage SIPs, and track your
+              portfolio.
             </p>
           </div>
 
@@ -168,7 +155,11 @@ export default function LoginPage() {
         <main className="flex flex-col px-6 py-8 sm:px-10 md:py-10">
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center gap-2.5 lg:invisible">
-              <img src="/assets/logo.png" alt="Nivya" className="h-7 w-auto" />
+              <img
+                src={`${import.meta.env.BASE_URL}assets/logo.png`}
+                alt="Nivya"
+                className="h-7 w-auto"
+              />
               <span className="font-display text-[20px] font-600 leading-none tracking-[-0.01em] text-ink">
                 Nivya
               </span>
@@ -177,10 +168,7 @@ export default function LoginPage() {
               to="/"
               className="group inline-flex items-center gap-1.5 font-sans text-[13.5px] font-medium text-ink-soft transition-colors hover:text-ink"
             >
-              <ArrowLeft
-                size={15}
-                className="transition-transform group-hover:-translate-x-0.5"
-              />
+              <ArrowLeft size={15} className="transition-transform group-hover:-translate-x-0.5" />
               Back to home
             </Link>
           </div>
@@ -189,7 +177,7 @@ export default function LoginPage() {
             <div
               className={cn(
                 "statement w-full max-w-[438px] rounded-[18px] px-7 py-8 shadow-statement transition-all duration-700 ease-out sm:px-9 sm:py-10",
-                mounted ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+                mounted ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0",
               )}
             >
               <div className="flex items-center justify-between">
@@ -226,9 +214,7 @@ export default function LoginPage() {
                       maxLength={10}
                       placeholder=" "
                       value={phone}
-                      onChange={(e) =>
-                        setPhone(e.target.value.replace(/\D/g, "").slice(0, 10))
-                      }
+                      onChange={(e) => setPhone(e.target.value.replace(/\D/g, "").slice(0, 10))}
                       onKeyDown={(e) => e.key === "Enter" && requestOtp()}
                       className="peer w-full border-0 border-b-[1.5px] border-line-strong bg-transparent pb-2 pt-1 font-sans text-[16px] text-ink outline-none transition-colors placeholder:text-transparent"
                     />
@@ -341,9 +327,8 @@ export default function LoginPage() {
           </div>
 
           <p className="mx-auto max-w-[440px] text-center font-sans text-[11.5px] leading-relaxed text-ink-mute">
-            Mutual fund investments are subject to market risks. Read all
-            scheme-related documents carefully. Nivya distributes Regular plans
-            only.
+            Mutual fund investments are subject to market risks. Read all scheme-related documents
+            carefully. Nivya distributes Regular plans only.
           </p>
         </main>
       </div>

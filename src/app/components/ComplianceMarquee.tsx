@@ -38,9 +38,7 @@ export default function ComplianceMarquee() {
         <MarqueeTrack />
       </div>
       {/* Accessible static summary for screen readers */}
-      <p className="n-sr-only">
-        {MARQUEE_ITEMS.join(". ")}
-      </p>
+      <p className="n-sr-only">{MARQUEE_ITEMS.join(". ")}</p>
     </div>
   );
 }

@@ -22,7 +22,7 @@ export default function PlansScreen() {
 
   const filtered = useMemo(
     () => (tab === "All" ? plans : plans.filter((p) => p.type === tab)),
-    [plans, tab]
+    [plans, tab],
   );
 
   const active = filtered.filter((p) => p.status !== "Cancelled");
@@ -32,7 +32,12 @@ export default function PlansScreen() {
     <div className="n-page">
       <div className="n-tabs grow">
         {(["All", "SIP", "STP", "SWP"] as Tab[]).map((t) => (
-          <button key={t} type="button" className={`n-tab ${tab === t ? "active" : ""}`} onClick={() => setTab(t)}>
+          <button
+            key={t}
+            type="button"
+            className={`n-tab ${tab === t ? "active" : ""}`}
+            onClick={() => setTab(t)}
+          >
             {t}
           </button>
         ))}
@@ -47,7 +52,12 @@ export default function PlansScreen() {
           <span className="n-empty-body">
             Set up a SIP, STP or SWP from any fund's detail page to see it here.
           </span>
-          <button type="button" className="n-btn n-btn-primary sm" style={{ marginTop: 8 }} onClick={() => navigate("/app/explore")}>
+          <button
+            type="button"
+            className="n-btn n-btn-primary sm"
+            style={{ marginTop: 8 }}
+            onClick={() => navigate("/app/explore")}
+          >
             Explore funds <ArrowRight size={13} />
           </button>
         </div>
@@ -87,7 +97,11 @@ export default function PlansScreen() {
 
       {confirmCancel && (
         <div className="n-sheet-overlay" onClick={() => setConfirmCancel(null)}>
-          <div className="n-sheet" style={{ maxHeight: "50%" }} onClick={(e) => e.stopPropagation()}>
+          <div
+            className="n-sheet"
+            style={{ maxHeight: "50%" }}
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="n-sheet-handle" />
             <div className="n-sheet-head">
               <span className="n-sheet-title">Cancel this plan?</span>
@@ -99,7 +113,11 @@ export default function PlansScreen() {
               Future installments will stop. This won't affect units you already hold.
             </p>
             <div className="n-row">
-              <button type="button" className="n-btn n-btn-outline block" onClick={() => setConfirmCancel(null)}>
+              <button
+                type="button"
+                className="n-btn n-btn-outline block"
+                onClick={() => setConfirmCancel(null)}
+              >
                 Keep plan
               </button>
               <button
@@ -145,7 +163,10 @@ function PlanCard({
         <span className="n-plan-icon">
           <Icon size={17} />
         </span>
-        <div style={{ flex: 1, minWidth: 0 }} onClick={() => targetFund && onOpenFund(targetFund.id)}>
+        <div
+          style={{ flex: 1, minWidth: 0 }}
+          onClick={() => targetFund && onOpenFund(targetFund.id)}
+        >
           <div className="n-row between">
             <span className="n-fund-name">{plan.type}</span>
             <span className={`n-plan-status ${plan.status}`}>{plan.status}</span>
@@ -159,7 +180,9 @@ function PlanCard({
       <div className="n-row between">
         <div>
           <div className="n-label">Amount</div>
-          <div style={{ fontWeight: 800, fontSize: 14 }}>₹{plan.amount.toLocaleString("en-IN")}</div>
+          <div style={{ fontWeight: 800, fontSize: 14 }}>
+            ₹{plan.amount.toLocaleString("en-IN")}
+          </div>
         </div>
         <div>
           <div className="n-label">Frequency</div>
@@ -182,7 +205,11 @@ function PlanCard({
               <Play size={13} /> Resume
             </button>
           )}
-          <button type="button" className="n-btn n-btn-outline sm" onClick={() => targetFund && onOpenFund(targetFund.id)}>
+          <button
+            type="button"
+            className="n-btn n-btn-outline sm"
+            onClick={() => targetFund && onOpenFund(targetFund.id)}
+          >
             Modify
           </button>
           <button type="button" className="n-btn n-btn-danger sm" onClick={onCancel}>

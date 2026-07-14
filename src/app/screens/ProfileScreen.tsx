@@ -26,7 +26,11 @@ export default function ProfileScreen() {
     { icon: Landmark, label: "Bank accounts" },
     { icon: Users, label: "Nominee" },
     { icon: FileText, label: "Statements & documents" },
-    { icon: Bell, label: "Notification preferences", onClick: () => navigate("/app/notifications") },
+    {
+      icon: Bell,
+      label: "Notification preferences",
+      onClick: () => navigate("/app/notifications"),
+    },
     { icon: MessageCircle, label: "Ask Nivya / Help", onClick: () => navigate("/app/chat") },
   ];
 
@@ -56,7 +60,12 @@ export default function ProfileScreen() {
           </div>
         </div>
         {kycStatus !== "verified" && (
-          <button type="button" className="n-btn n-btn-primary block" style={{ marginTop: 14 }} onClick={completeKyc}>
+          <button
+            type="button"
+            className="n-btn n-btn-primary block"
+            style={{ marginTop: 14 }}
+            onClick={completeKyc}
+          >
             Complete KYC (demo)
           </button>
         )}
@@ -80,14 +89,15 @@ export default function ProfileScreen() {
           <span style={{ fontWeight: 800, fontSize: 13.5 }}>Disclosures</span>
         </div>
         <p className="n-disclosure">
-          Nivya Wealth is an AMFI-registered Mutual Fund Distributor (ARN-192837, demo). We distribute Regular Plan
-          schemes only and do not offer Direct Plans. Nivya does not provide personalised investment advice. Fund
-          discovery on this app is based on transparent, criteria-based data (expense ratio, rolling consistency,
-          category-relative returns), not on SEBI Registered Investment Adviser recommendations.
+          Nivya Wealth is an AMFI-registered Mutual Fund Distributor (ARN-192837, demo). We
+          distribute Regular Plan schemes only and do not offer Direct Plans. Nivya does not provide
+          personalised investment advice. Fund discovery on this app is based on transparent,
+          criteria-based data (expense ratio, rolling consistency, category-relative returns), not
+          on SEBI Registered Investment Adviser recommendations.
         </p>
         <p className="n-disclosure" style={{ marginTop: 6 }}>
-          Mutual fund investments are subject to market risks. Please read all scheme-related documents carefully
-          before investing.
+          Mutual fund investments are subject to market risks. Please read all scheme-related
+          documents carefully before investing.
         </p>
       </div>
 

@@ -1,13 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import {
-  Area,
-  AreaChart,
-  ResponsiveContainer,
-  Tooltip,
-  YAxis,
-} from "recharts";
+import { Area, AreaChart, ResponsiveContainer, Tooltip, YAxis } from "recharts";
 import { ArrowUpRight, ArrowDownRight, Activity, Layers3, Radar } from "lucide-react";
 import SectionOverline from "@/components/SectionOverline";
 
@@ -86,7 +80,7 @@ export default function PortfolioInsightsSection() {
           stagger: 0.1,
           ease: "power2.out",
           scrollTrigger: { trigger: sectionRef.current, start: "top 80%", once: true },
-        }
+        },
       );
       gsap.fromTo(
         boardRef.current,
@@ -97,7 +91,7 @@ export default function PortfolioInsightsSection() {
           duration: 0.8,
           ease: "expo.out",
           scrollTrigger: { trigger: boardRef.current, start: "top 85%", once: true },
-        }
+        },
       );
     }, sectionRef);
     return () => ctx.revert();
@@ -137,7 +131,11 @@ export default function PortfolioInsightsSection() {
           <article className="statement relative flex flex-col overflow-hidden rounded-xl2 shadow-statement">
             <div className="flex items-start justify-between gap-3 px-5 pt-5 sm:px-6 sm:pt-6">
               <div className="flex items-center gap-2.5">
-                <img src="/assets/logo.png" alt="" className="h-7 w-auto" />
+                <img
+                  src={`${import.meta.env.BASE_URL}assets/logo.png`}
+                  alt="Nivya"
+                  className="h-7 w-auto"
+                />
                 <div className="leading-tight">
                   <p className="font-display text-[17px] font-medium text-ink">Nivya</p>
                   <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-ink-mute">
@@ -206,7 +204,10 @@ export default function PortfolioInsightsSection() {
                       </linearGradient>
                     </defs>
                     <YAxis hide domain={["dataMin - 1", "dataMax + 1"]} />
-                    <Tooltip content={() => null} cursor={{ stroke: "#0F6E5E", strokeOpacity: 0.25, strokeDasharray: "4 4" }} />
+                    <Tooltip
+                      content={() => null}
+                      cursor={{ stroke: "#0F6E5E", strokeOpacity: 0.25, strokeDasharray: "4 4" }}
+                    />
                     <Area
                       type="monotone"
                       dataKey="value"
@@ -235,7 +236,10 @@ export default function PortfolioInsightsSection() {
                 { label: "SIPs active", value: "3" },
                 { label: "XIRR", value: "16.4%" },
               ].map((m) => (
-                <div key={m.label} className="rounded-medium bg-paper-deep/50 px-2.5 py-2 text-center">
+                <div
+                  key={m.label}
+                  className="rounded-medium bg-paper-deep/50 px-2.5 py-2 text-center"
+                >
                   <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-ink-mute">
                     {m.label}
                   </p>

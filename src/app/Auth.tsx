@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components -- context module exports provider + hook */
 import { createContext, useCallback, useContext, useMemo, useState, type ReactNode } from "react";
 import { Navigate, useLocation } from "react-router";
 
@@ -68,7 +69,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       loginWithOtp,
       logout,
     }),
-    [session, loginWithOtp, logout]
+    [session, loginWithOtp, logout],
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

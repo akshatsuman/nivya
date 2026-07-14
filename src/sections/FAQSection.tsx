@@ -26,8 +26,7 @@ const faqs = [
   },
   {
     question: "Can I talk to a real person?",
-    answer:
-      "Yes. You can chat or book a call. They answer questions and do not push products.",
+    answer: "Yes. You can chat or book a call. They answer questions and do not push products.",
   },
   {
     question: "What else can I do besides start a SIP?",
@@ -41,8 +40,7 @@ const faqs = [
   },
   {
     question: "Are returns guaranteed?",
-    answer:
-      "No. Mutual funds carry market risk. Numbers on this site are examples, not promises.",
+    answer: "No. Mutual funds carry market risk. Numbers on this site are examples, not promises.",
   },
 ];
 
@@ -64,7 +62,7 @@ export default function FAQSection() {
           stagger: 0.1,
           ease: "power2.out",
           scrollTrigger: { trigger: headingRef.current, start: "top 85%", once: true },
-        }
+        },
       );
       if (listRef.current) {
         gsap.fromTo(
@@ -77,7 +75,7 @@ export default function FAQSection() {
             stagger: 0.06,
             ease: "power2.out",
             scrollTrigger: { trigger: listRef.current, start: "top 85%", once: true },
-          }
+          },
         );
       }
     }, sectionRef);
@@ -96,10 +94,7 @@ export default function FAQSection() {
           </p>
         </div>
 
-        <div
-          ref={listRef}
-          className="grid w-full grid-cols-1 gap-3 md:grid-cols-2 md:gap-4"
-        >
+        <div ref={listRef} className="grid w-full grid-cols-1 gap-3 md:grid-cols-2 md:gap-4">
           {faqs.map((faq, i) => (
             <div key={i} className="h-fit opacity-0">
               <FAQItem

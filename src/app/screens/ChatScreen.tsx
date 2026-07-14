@@ -32,7 +32,7 @@ export default function ChatScreen() {
       showWatchlist: false,
       showNotifications: false,
     },
-    [fund?.id]
+    [fund?.id],
   );
 
   const [messages, setMessages] = useState<Message[]>([
@@ -73,17 +73,12 @@ export default function ChatScreen() {
   return (
     <div className="n-page n-chat-wrap">
       {fund && (
-        <div className="n-chat-fund-chip">
-          @{fund.name.split(" ").slice(0, 3).join(" ")}
-        </div>
+        <div className="n-chat-fund-chip">@{fund.name.split(" ").slice(0, 3).join(" ")}</div>
       )}
 
       <div className="n-chat-messages">
         {messages.map((m) => (
-          <div
-            key={m.id}
-            className={`n-chat-bubble ${m.role}${m.guardrail ? " guardrail" : ""}`}
-          >
+          <div key={m.id} className={`n-chat-bubble ${m.role}${m.guardrail ? " guardrail" : ""}`}>
             {m.text}
           </div>
         ))}

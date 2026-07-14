@@ -16,7 +16,7 @@ export default function FAQItem({ question, answer, isOpen, onToggle }: FAQItemP
     <div
       className={cn(
         "overflow-hidden rounded-[10px] bg-paper-deep/70 transition-colors duration-300",
-        isOpen && "bg-paper-deep"
+        isOpen && "bg-paper-deep",
       )}
     >
       <button
@@ -29,7 +29,7 @@ export default function FAQItem({ question, answer, isOpen, onToggle }: FAQItemP
         <Plus
           className={cn(
             "h-[18px] w-[18px] shrink-0 text-ink transition-transform duration-300",
-            isOpen && "rotate-45 text-evergreen"
+            isOpen && "rotate-45 text-evergreen",
           )}
           strokeWidth={1.75}
         />

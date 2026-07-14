@@ -19,12 +19,7 @@ export type FundCategory =
   | "Index";
 
 export type RiskLevel =
-  | "Low"
-  | "Low to Moderate"
-  | "Moderate"
-  | "Moderately High"
-  | "High"
-  | "Very High";
+  "Low" | "Low to Moderate" | "Moderate" | "Moderately High" | "High" | "Very High";
 
 export interface Fund {
   id: string;
@@ -446,7 +441,13 @@ export function getFund(id: string): Fund | undefined {
 }
 
 // Deterministic pseudo-series generator so charts stay stable across re-renders.
-function seededSeries(seed: string, points: number, base: number, driftPct: number, volPct: number): number[] {
+function seededSeries(
+  seed: string,
+  points: number,
+  base: number,
+  driftPct: number,
+  volPct: number,
+): number[] {
   let hash = 0;
   for (let i = 0; i < seed.length; i++) hash = (hash * 31 + seed.charCodeAt(i)) >>> 0;
   const series: number[] = [];
@@ -471,13 +472,16 @@ export function getNavHistory(fund: Fund, months = 12): { label: string; value: 
   });
 }
 
-export const PORTFOLIO_TREND = seededSeries("nivya-portfolio-trend", 12, 1, 0.14, 0.015).map((v, i, arr) => ({
-  label: new Date(new Date().getFullYear(), new Date().getMonth() - (arr.length - 1 - i), 1).toLocaleDateString(
-    "en-IN",
-    { month: "short" }
-  ),
-  value: v,
-}));
+export const PORTFOLIO_TREND = seededSeries("nivya-portfolio-trend", 12, 1, 0.14, 0.015).map(
+  (v, i, arr) => ({
+    label: new Date(
+      new Date().getFullYear(),
+      new Date().getMonth() - (arr.length - 1 - i),
+      1,
+    ).toLocaleDateString("en-IN", { month: "short" }),
+    value: v,
+  }),
+);
 
 export const HOLDINGS: Holding[] = [
   { fundId: "meridian-bluechip", units: 812.4, avgNav: 71.2 },
@@ -564,7 +568,11 @@ export const INITIAL_PLANS: InvestmentPlan[] = [
   },
 ];
 
-export const INITIAL_WATCHLIST: string[] = ["northwind-midcap", "vantage-focused", "riverstone-largemid"];
+export const INITIAL_WATCHLIST: string[] = [
+  "northwind-midcap",
+  "vantage-focused",
+  "riverstone-largemid",
+];
 
 export const INITIAL_NOTIFICATIONS: AppNotification[] = [
   {
@@ -643,7 +651,8 @@ export const INITIAL_NOTIFICATIONS: AppNotification[] = [
 
 // ── Investment DNA wizard ────────────────────────────────────────────────
 
-export type DnaGoal = "Long-term wealth growth" | "Tax saving (80C)" | "Short-term parking" | "Regular income";
+export type DnaGoal =
+  "Long-term wealth growth" | "Tax saving (80C)" | "Short-term parking" | "Regular income";
 export type DnaHorizon = "<1 year" | "1-3 years" | "3-5 years" | "5+ years";
 export type DnaRisk = "Conservative" | "Moderate" | "Aggressive";
 export type DnaPriority = "Lower cost" | "Consistency across cycles" | "Large, established AMC";
@@ -663,7 +672,11 @@ export const DNA_GOALS: DnaGoal[] = [
 ];
 export const DNA_HORIZONS: DnaHorizon[] = ["<1 year", "1-3 years", "3-5 years", "5+ years"];
 export const DNA_RISKS: DnaRisk[] = ["Conservative", "Moderate", "Aggressive"];
-export const DNA_PRIORITIES: DnaPriority[] = ["Lower cost", "Consistency across cycles", "Large, established AMC"];
+export const DNA_PRIORITIES: DnaPriority[] = [
+  "Lower cost",
+  "Consistency across cycles",
+  "Large, established AMC",
+];
 
 export interface RankedFund {
   fund: Fund;
@@ -745,13 +758,18 @@ export function runDnaRanking(prefs: DnaPrefs): RankedFund[] {
     }
 
     if (prefs.priority === "Lower cost" && expenseDelta > 0) score += 8;
-    if (prefs.priority === "Consistency across cycles" && fund.rollingConsistencyPct >= 78) score += 8;
+    if (prefs.priority === "Consistency across cycles" && fund.rollingConsistencyPct >= 78)
+      score += 8;
     if (prefs.priority === "Large, established AMC" && fund.aumCr >= 6000) {
       score += 8;
       whyTags.push("Large, established AMC by AUM");
     }
 
-    return { fund, score: Math.round(Math.min(99, score)), whyTags: Array.from(new Set(whyTags)).slice(0, 3) };
+    return {
+      fund,
+      score: Math.round(Math.min(99, score)),
+      whyTags: Array.from(new Set(whyTags)).slice(0, 3),
+    };
   });
 
   return scored.sort((a, b) => b.score - a.score).slice(0, 8);

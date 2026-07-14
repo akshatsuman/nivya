@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components -- shell exports layout + app-bar hook */
 import { useEffect, useState, type ReactNode } from "react";
 import { Outlet, useLocation, useNavigate, useOutletContext } from "react-router";
 import { ArrowLeft } from "lucide-react";
@@ -25,12 +26,12 @@ export default function InvestorShell() {
   const [appBarConfig, setAppBarConfig] = useState<AppBarConfig>(DEFAULT_CONFIG);
   const location = useLocation();
   const navigate = useNavigate();
+  const [path, setPath] = useState(location.pathname);
 
-  useEffect(() => {
+  if (path !== location.pathname) {
+    setPath(location.pathname);
     setAppBarConfig(DEFAULT_CONFIG);
-  }, [location.pathname]);
-
-  const path = location.pathname;
+  }
   const isHome = path === "/app" || path === "/app/";
   const hideChrome = path.endsWith("/onboarding");
   const showInsightRail = isHome && !hideChrome;
@@ -62,7 +63,9 @@ export default function InvestorShell() {
                   ) : null}
                 </div>
               </div>
-              {appBarConfig.right ? <div className="n-page-head-right">{appBarConfig.right}</div> : null}
+              {appBarConfig.right ? (
+                <div className="n-page-head-right">{appBarConfig.right}</div>
+              ) : null}
             </div>
           )}
 

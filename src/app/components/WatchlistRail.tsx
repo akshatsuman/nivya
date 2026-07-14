@@ -9,10 +9,7 @@ export default function WatchlistRail() {
   const { watchlist, toggleWatchlist } = useAppState();
   const [query, setQuery] = useState("");
 
-  const watched = useMemo(
-    () => watchlist.map((id) => getFund(id)).filter(Boolean),
-    [watchlist]
-  );
+  const watched = useMemo(() => watchlist.map((id) => getFund(id)).filter(Boolean), [watchlist]);
 
   const suggestions = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -21,7 +18,7 @@ export default function WatchlistRail() {
       (f) =>
         f.name.toLowerCase().includes(q) ||
         f.amc.toLowerCase().includes(q) ||
-        f.category.toLowerCase().includes(q)
+        f.category.toLowerCase().includes(q),
     ).slice(0, 8);
   }, [query, watchlist]);
 
@@ -67,7 +64,11 @@ export default function WatchlistRail() {
               <div className="n-rail-fund-side">
                 <div className="n-rail-fund-nav">₹{fund.nav.toFixed(2)}</div>
                 <div className={`n-fund-change ${fund.navChangePct >= 0 ? "pos" : "neg"}`}>
-                  {fund.navChangePct >= 0 ? <ArrowUpRight size={11} /> : <ArrowDownRight size={11} />}
+                  {fund.navChangePct >= 0 ? (
+                    <ArrowUpRight size={11} />
+                  ) : (
+                    <ArrowDownRight size={11} />
+                  )}
                   {Math.abs(fund.navChangePct).toFixed(2)}%
                 </div>
               </div>
@@ -82,7 +83,7 @@ export default function WatchlistRail() {
                 <Star size={13} fill={watchlist.includes(fund.id) ? "currentColor" : "none"} />
               </span>
             </button>
-          ) : null
+          ) : null,
         )}
       </div>
     </aside>

@@ -1,13 +1,7 @@
 import { useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { Area, AreaChart, ResponsiveContainer, Tooltip, YAxis } from "recharts";
-import {
-  ArrowDownRight,
-  ArrowUpRight,
-  FileText,
-  MessageCircle,
-  Star,
-} from "lucide-react";
+import { ArrowDownRight, ArrowUpRight, FileText, MessageCircle, Star } from "lucide-react";
 import { useShellAppBar } from "../InvestorShell";
 import { useAppState, type OrderMode } from "../AppState";
 import { FUNDS, getFund, getNavHistory } from "../data";
@@ -41,7 +35,7 @@ export default function FundDetailScreen() {
         </button>
       ) : undefined,
     },
-    [fund?.id, fund?.name, isWatchlisted(fundId)]
+    [fund?.id, fund?.name, isWatchlisted(fundId)],
   );
 
   if (!fund) {
@@ -49,7 +43,11 @@ export default function FundDetailScreen() {
       <div className="n-page">
         <div className="n-empty">
           <span className="n-empty-title">Fund not found</span>
-          <button type="button" className="n-btn n-btn-primary sm" onClick={() => navigate("/app/explore")}>
+          <button
+            type="button"
+            className="n-btn n-btn-primary sm"
+            onClick={() => navigate("/app/explore")}
+          >
             Back to Explore
           </button>
         </div>
@@ -87,7 +85,13 @@ export default function FundDetailScreen() {
                 contentStyle={{ fontSize: 12, borderRadius: 10, border: "1px solid #e6e9f0" }}
                 formatter={(v: number) => [`₹${v.toFixed(2)}`, "NAV"]}
               />
-              <Area type="monotone" dataKey="value" stroke="#0fa8a0" strokeWidth={2} fill="url(#fundNav)" />
+              <Area
+                type="monotone"
+                dataKey="value"
+                stroke="#0fa8a0"
+                strokeWidth={2}
+                fill="url(#fundNav)"
+              />
             </AreaChart>
           </ResponsiveContainer>
         </div>
@@ -107,7 +111,8 @@ export default function FundDetailScreen() {
               <div className="n-label">{r.label}</div>
               <div style={{ fontWeight: 800, fontSize: 15 }}>{r.value}%</div>
               <div className="n-muted" style={{ fontSize: 10.5 }}>
-                Cat {fund.categoryAvgReturns[r.label === "1Y" ? "y1" : r.label === "3Y" ? "y3" : "y5"]}%
+                Cat{" "}
+                {fund.categoryAvgReturns[r.label === "1Y" ? "y1" : r.label === "3Y" ? "y3" : "y5"]}%
               </div>
             </div>
           ))}
@@ -141,7 +146,10 @@ export default function FundDetailScreen() {
       </div>
 
       {holding && (
-        <div className="n-card" style={{ background: "var(--teal-bg)", border: "1px solid var(--teal-border)" }}>
+        <div
+          className="n-card"
+          style={{ background: "var(--teal-bg)", border: "1px solid var(--teal-border)" }}
+        >
           <div className="n-label" style={{ color: "var(--teal-ink)" }}>
             Your holding
           </div>
@@ -153,8 +161,13 @@ export default function FundDetailScreen() {
               </div>
             </div>
             <div style={{ textAlign: "right" }}>
-              <div style={{ fontWeight: 800 }}>₹{Math.round(holding.currentValue).toLocaleString("en-IN")}</div>
-              <div className={`n-fund-change ${holding.gainPct >= 0 ? "pos" : "neg"}`} style={{ justifyContent: "flex-end" }}>
+              <div style={{ fontWeight: 800 }}>
+                ₹{Math.round(holding.currentValue).toLocaleString("en-IN")}
+              </div>
+              <div
+                className={`n-fund-change ${holding.gainPct >= 0 ? "pos" : "neg"}`}
+                style={{ justifyContent: "flex-end" }}
+              >
                 {holding.gainPct >= 0 ? "+" : ""}
                 {holding.gainPct.toFixed(1)}%
               </div>
@@ -172,11 +185,16 @@ export default function FundDetailScreen() {
           <span className="n-chip">SID · KIM · SAI</span>
         </div>
         <p className="n-disclosure" style={{ marginTop: 8 }}>
-          Consent to SID/KIM is logged before your first investment in each scheme (demo ARN + EUIN on confirm).
+          Consent to SID/KIM is logged before your first investment in each scheme (demo ARN + EUIN
+          on confirm).
         </p>
       </div>
 
-      <button type="button" className="n-btn n-btn-outline block" onClick={() => navigate("/app/chat", { state: { fundId: fund.id } })}>
+      <button
+        type="button"
+        className="n-btn n-btn-outline block"
+        onClick={() => navigate("/app/chat", { state: { fundId: fund.id } })}
+      >
         <MessageCircle size={15} /> Ask about this fund
       </button>
 
@@ -186,34 +204,66 @@ export default function FundDetailScreen() {
         {holding ? (
           <>
             <div className="n-row" style={{ gap: 8, width: "100%" }}>
-              <button type="button" className="n-btn n-btn-outline block" onClick={() => setOrderMode("REDEEM")}>
+              <button
+                type="button"
+                className="n-btn n-btn-outline block"
+                onClick={() => setOrderMode("REDEEM")}
+              >
                 Redeem
               </button>
-              <button type="button" className="n-btn n-btn-outline block" onClick={() => setOrderMode("SWITCH")}>
+              <button
+                type="button"
+                className="n-btn n-btn-outline block"
+                onClick={() => setOrderMode("SWITCH")}
+              >
                 Switch
               </button>
-              <button type="button" className="n-btn n-btn-primary block" onClick={() => setOrderMode("LUMPSUM")}>
+              <button
+                type="button"
+                className="n-btn n-btn-primary block"
+                onClick={() => setOrderMode("LUMPSUM")}
+              >
                 Invest
               </button>
             </div>
             <div className="n-row" style={{ gap: 8, width: "100%", marginTop: 8 }}>
-              <button type="button" className="n-btn n-btn-secondary block" onClick={() => setOrderMode("SIP")}>
+              <button
+                type="button"
+                className="n-btn n-btn-secondary block"
+                onClick={() => setOrderMode("SIP")}
+              >
                 SIP
               </button>
-              <button type="button" className="n-btn n-btn-secondary block" onClick={() => setOrderMode("STP")}>
+              <button
+                type="button"
+                className="n-btn n-btn-secondary block"
+                onClick={() => setOrderMode("STP")}
+              >
                 STP
               </button>
-              <button type="button" className="n-btn n-btn-secondary block" onClick={() => setOrderMode("SWP")}>
+              <button
+                type="button"
+                className="n-btn n-btn-secondary block"
+                onClick={() => setOrderMode("SWP")}
+              >
                 SWP
               </button>
             </div>
           </>
         ) : (
           <div className="n-row" style={{ gap: 8, width: "100%" }}>
-            <button type="button" className="n-btn n-btn-outline block" onClick={() => setOrderMode("SIP")}>
+            <button
+              type="button"
+              className="n-btn n-btn-outline block"
+              onClick={() => setOrderMode("SIP")}
+            >
               Start SIP
             </button>
-            <button type="button" className="n-btn n-btn-primary block" onClick={() => setOrderMode("LUMPSUM")}>
+            <button
+              type="button"
+              className="n-btn n-btn-primary block"
+              onClick={() => setOrderMode("LUMPSUM")}
+            >
               Invest
             </button>
           </div>

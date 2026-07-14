@@ -6,9 +6,22 @@ import { Linkedin, Twitter, Instagram, Facebook, ShieldCheck } from "lucide-reac
 
 gsap.registerPlugin(ScrollTrigger);
 
-const investLinks = ["Mutual funds", "SIPs", "Goal planning", "Fund explorer", "Portfolio insights", "Portfolio health check"];
+const investLinks = [
+  "Mutual funds",
+  "SIPs",
+  "Goal planning",
+  "Fund explorer",
+  "Portfolio insights",
+  "Portfolio health check",
+];
 const companyLinks = ["About Nivya", "How we make money", "Press", "Careers", "Contact"];
-const legalLinks = ["Terms of use", "Privacy policy", "Regulatory disclosures", "Grievance redressal", "Scheme documents"];
+const legalLinks = [
+  "Terms of use",
+  "Privacy policy",
+  "Regulatory disclosures",
+  "Grievance redressal",
+  "Scheme documents",
+];
 
 export default function Footer() {
   const footerRef = useRef<HTMLElement>(null);
@@ -27,7 +40,7 @@ export default function Footer() {
             stagger: 0.14,
             ease: "power2.out",
             scrollTrigger: { trigger: footerRef.current, start: "top 90%", once: true },
-          }
+          },
         );
       }
     }, footerRef);
@@ -42,24 +55,32 @@ export default function Footer() {
       <div className="content-container mb-16">
         <div
           className="h-px w-full"
-          style={{ background: "linear-gradient(90deg, transparent, #B4925A 30%, #1AA08C 70%, transparent)" }}
+          style={{
+            background:
+              "linear-gradient(90deg, transparent, #B4925A 30%, #1AA08C 70%, transparent)",
+          }}
         />
       </div>
 
       <div className="content-container">
-        <div ref={columnsRef} className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
+        <div
+          ref={columnsRef}
+          className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr]"
+        >
           {/* Brand */}
           <div className="opacity-0 sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-2.5">
               <span className="inline-block h-2 w-2 rotate-45 bg-gold" />
-              <h3 className="font-display text-[26px] font-500 tracking-[-0.01em] text-paper">Nivya</h3>
+              <h3 className="font-display text-[26px] font-500 tracking-[-0.01em] text-paper">
+                Nivya
+              </h3>
             </div>
             <p className="mt-3 font-sans text-[14px] font-600 tracking-[0.01em] text-gold-soft">
               Wealth, made simple.
             </p>
             <p className="mt-4 max-w-[280px] font-sans text-[14.5px] leading-relaxed text-paper/55">
-              A calmer, more transparent way to invest in mutual funds across
-              India. Patient money, tended well.
+              A calmer, more transparent way to invest in mutual funds across India. Patient money,
+              tended well.
             </p>
             <Link
               to="/login"
@@ -71,30 +92,42 @@ export default function Footer() {
 
           {/* Invest */}
           <div className="opacity-0">
-            <h4 className="mb-5 font-mono text-[11px] uppercase tracking-[0.16em] text-gold-soft">Invest</h4>
+            <h4 className="mb-5 font-mono text-[11px] uppercase tracking-[0.16em] text-gold-soft">
+              Invest
+            </h4>
             <ul className="space-y-3">
               {investLinks.map((l) => (
-                <li key={l}><span className={linkClasses}>{l}</span></li>
+                <li key={l}>
+                  <span className={linkClasses}>{l}</span>
+                </li>
               ))}
             </ul>
           </div>
 
           {/* Company */}
           <div className="opacity-0">
-            <h4 className="mb-5 font-mono text-[11px] uppercase tracking-[0.16em] text-gold-soft">Company</h4>
+            <h4 className="mb-5 font-mono text-[11px] uppercase tracking-[0.16em] text-gold-soft">
+              Company
+            </h4>
             <ul className="space-y-3">
               {companyLinks.map((l) => (
-                <li key={l}><span className={linkClasses}>{l}</span></li>
+                <li key={l}>
+                  <span className={linkClasses}>{l}</span>
+                </li>
               ))}
             </ul>
           </div>
 
           {/* Legal */}
           <div className="opacity-0">
-            <h4 className="mb-5 font-mono text-[11px] uppercase tracking-[0.16em] text-gold-soft">Legal</h4>
+            <h4 className="mb-5 font-mono text-[11px] uppercase tracking-[0.16em] text-gold-soft">
+              Legal
+            </h4>
             <ul className="space-y-3">
               {legalLinks.map((l) => (
-                <li key={l}><span className={linkClasses}>{l}</span></li>
+                <li key={l}>
+                  <span className={linkClasses}>{l}</span>
+                </li>
               ))}
             </ul>
           </div>
@@ -103,10 +136,9 @@ export default function Footer() {
         {/* Risk disclaimer */}
         <div className="mt-16 rounded-medium border border-paper/10 bg-paper/[0.03] px-5 py-4">
           <p className="font-sans text-[12.5px] leading-relaxed text-paper/45">
-            Mutual fund investments are subject to market risks. Read all
-            scheme-related documents carefully before investing. Past performance
-            is not indicative of future returns. Figures and projections shown on
-            this page are illustrative only.
+            Mutual fund investments are subject to market risks. Read all scheme-related documents
+            carefully before investing. Past performance is not indicative of future returns.
+            Figures and projections shown on this page are illustrative only.
           </p>
         </div>
 

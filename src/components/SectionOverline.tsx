@@ -15,14 +15,14 @@ export default function SectionOverline({
     <div
       className={cn(
         "flex items-center gap-2.5",
-        align === "center" ? "justify-center" : "justify-start"
+        align === "center" ? "justify-center" : "justify-start",
       )}
     >
       <span className="inline-block h-[7px] w-[7px] rotate-45 bg-gold" />
       <span
         className={cn(
           "font-mono text-[14px] font-medium uppercase tracking-[0.16em]",
-          light ? "text-gold-soft" : "text-ink-mute"
+          light ? "text-gold-soft" : "text-ink-mute",
         )}
       >
         {text}

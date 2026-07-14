@@ -47,7 +47,7 @@ export default function Navigation() {
       gsap.fromTo(
         links,
         { opacity: 0, y: 18 },
-        { opacity: 1, y: 0, stagger: 0.05, duration: 0.4, ease: "power2.out" }
+        { opacity: 1, y: 0, stagger: 0.05, duration: 0.4, ease: "power2.out" },
       );
     }
   }, [mobileOpen]);
@@ -66,12 +66,16 @@ export default function Navigation() {
           "fixed top-0 left-0 right-0 z-[1000] h-[68px] transition-all duration-300",
           scrolled
             ? "bg-paper/85 backdrop-blur-xl border-b border-line shadow-nav"
-            : "bg-transparent"
+            : "bg-transparent",
         )}
       >
         <div className="content-container h-full flex items-center justify-between">
           <a href="#" className="flex items-center gap-2.5">
-            <img src="/assets/logo.png" alt="Nivya" className="h-8 w-auto" />
+            <img
+              src={`${import.meta.env.BASE_URL}assets/logo.png`}
+              alt="Nivya"
+              className="h-8 w-auto"
+            />
             <span className="font-display text-[22px] font-600 leading-none text-ink tracking-[-0.01em]">
               Nivya
             </span>
@@ -97,7 +101,7 @@ export default function Navigation() {
                 "hidden md:inline-flex items-center justify-center rounded-full bg-evergreen px-5 py-2.5 font-sans text-[14px] font-semibold text-paper-raised shadow-[0_8px_20px_-12px_rgba(15,110,94,0.8)] transition-all duration-300 hover:bg-evergreen-deep",
                 showNavSignIn
                   ? "pointer-events-auto translate-y-0 opacity-100"
-                  : "pointer-events-none -translate-y-1 opacity-0"
+                  : "pointer-events-none -translate-y-1 opacity-0",
               )}
               tabIndex={showNavSignIn ? 0 : -1}
               aria-hidden={!showNavSignIn}

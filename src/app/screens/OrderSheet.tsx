@@ -27,7 +27,7 @@ export default function OrderSheet({ fundId, mode, destinations, onClose }: Orde
   const holding = holdings.find((h) => h.fundId === fundId);
 
   const [amount, setAmount] = useState(
-    mode === "SIP" ? String(fund?.minSip ?? 5000) : String(fund?.minLumpsum ?? 5000)
+    mode === "SIP" ? String(fund?.minSip ?? 5000) : String(fund?.minLumpsum ?? 5000),
   );
   const [day, setDay] = useState(5);
   const [toFundId, setToFundId] = useState(destinations[0]?.id ?? "");
@@ -42,7 +42,8 @@ export default function OrderSheet({ fundId, mode, destinations, onClose }: Orde
     if (amountNum <= 0) return false;
     if (needsDest && !toFundId) return false;
     if (NEEDS_CONSENT.includes(mode) && !consent) return false;
-    if ((mode === "REDEEM" || mode === "SWP" || mode === "SWITCH" || mode === "STP") && !holding) return false;
+    if ((mode === "REDEEM" || mode === "SWP" || mode === "SWITCH" || mode === "STP") && !holding)
+      return false;
     return true;
   }, [amountNum, consent, holding, kycStatus, mode, needsDest, toFundId]);
 
@@ -57,7 +58,9 @@ export default function OrderSheet({ fundId, mode, destinations, onClose }: Orde
             <span className="n-order-success-icon">
               <CheckCircle2 size={28} />
             </span>
-            <div style={{ fontWeight: 800, fontSize: 16 }}>{done.ok ? "Order placed" : "Could not place"}</div>
+            <div style={{ fontWeight: 800, fontSize: 16 }}>
+              {done.ok ? "Order placed" : "Could not place"}
+            </div>
             <p className="n-muted" style={{ fontSize: 13, textAlign: "center" }}>
               {done.message}
             </p>
@@ -113,7 +116,12 @@ export default function OrderSheet({ fundId, mode, destinations, onClose }: Orde
             <label className="n-label" htmlFor="order-day">
               Debit / transfer day
             </label>
-            <select id="order-day" className="n-input" value={day} onChange={(e) => setDay(Number(e.target.value))}>
+            <select
+              id="order-day"
+              className="n-input"
+              value={day}
+              onChange={(e) => setDay(Number(e.target.value))}
+            >
               {Array.from({ length: 28 }, (_, i) => i + 1).map((d) => (
                 <option key={d} value={d}>
                   {d}
@@ -144,11 +152,20 @@ export default function OrderSheet({ fundId, mode, destinations, onClose }: Orde
         )}
 
         {NEEDS_CONSENT.includes(mode) && (
-          <label className="n-row" style={{ alignItems: "flex-start", gap: 10, marginTop: 8, cursor: "pointer" }}>
-            <input type="checkbox" checked={consent} onChange={(e) => setConsent(e.target.checked)} style={{ marginTop: 3 }} />
+          <label
+            className="n-row"
+            style={{ alignItems: "flex-start", gap: 10, marginTop: 8, cursor: "pointer" }}
+          >
+            <input
+              type="checkbox"
+              checked={consent}
+              onChange={(e) => setConsent(e.target.checked)}
+              style={{ marginTop: 3 }}
+            />
             <span style={{ fontSize: 12, color: "var(--muted)", lineHeight: 1.45 }}>
-              I have read the SID/KIM/SAI for this scheme. I understand mutual fund investments are subject to market
-              risks. This is an execution instruction to Nivya as AMFI-registered distributor, not personalised advice.
+              I have read the SID/KIM/SAI for this scheme. I understand mutual fund investments are
+              subject to market risks. This is an execution instruction to Nivya as AMFI-registered
+              distributor, not personalised advice.
             </span>
           </label>
         )}

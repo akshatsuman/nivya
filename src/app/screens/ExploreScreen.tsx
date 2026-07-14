@@ -1,13 +1,6 @@
 import { useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
-import {
-  Star,
-  Sparkles,
-  RotateCcw,
-  X,
-  Calculator,
-  TrendingUp,
-} from "lucide-react";
+import { Star, Sparkles, RotateCcw, X, Calculator, TrendingUp } from "lucide-react";
 import { useShellAppBar } from "../InvestorShell";
 import { useAppState } from "../AppState";
 import {
@@ -78,7 +71,7 @@ function BrowseSegment() {
 
   const funds = useMemo(
     () => (category === "All" ? FUNDS : FUNDS.filter((f) => f.category === category)),
-    [category]
+    [category],
   );
 
   return (
@@ -98,7 +91,12 @@ function BrowseSegment() {
 
       <div className="n-col" style={{ gap: 10 }}>
         {funds.map((fund) => (
-          <div key={fund.id} className="n-fund-card" style={{ cursor: "pointer" }} onClick={() => navigate(`/app/fund/${fund.id}`)}>
+          <div
+            key={fund.id}
+            className="n-fund-card"
+            style={{ cursor: "pointer" }}
+            onClick={() => navigate(`/app/fund/${fund.id}`)}
+          >
             <span className="n-fund-avatar">{fund.amc.slice(0, 1)}</span>
             <div className="n-fund-info">
               <div className="n-fund-name">{fund.name}</div>
@@ -108,7 +106,9 @@ function BrowseSegment() {
             </div>
             <div className="n-fund-side">
               <div className="n-fund-nav">₹{fund.nav.toFixed(2)}</div>
-              <div className={`n-fund-change ${fund.returns.y3 >= 0 ? "pos" : "neg"}`}>3Y {fund.returns.y3}%</div>
+              <div className={`n-fund-change ${fund.returns.y3 >= 0 ? "pos" : "neg"}`}>
+                3Y {fund.returns.y3}%
+              </div>
             </div>
             <button
               type="button"
@@ -148,22 +148,34 @@ function RankSegment() {
   if (dnaPrefs && dnaResults.length > 0) {
     return (
       <div className="n-col" style={{ gap: 14 }}>
-        <div className="n-card" style={{ background: "var(--teal-bg)", border: "1px solid var(--teal-border)" }}>
+        <div
+          className="n-card"
+          style={{ background: "var(--teal-bg)", border: "1px solid var(--teal-border)" }}
+        >
           <div className="n-row between">
             <div>
-              <div style={{ fontSize: 12.5, fontWeight: 700, color: "var(--teal-ink)" }}>Your Investment DNA</div>
+              <div style={{ fontSize: 12.5, fontWeight: 700, color: "var(--teal-ink)" }}>
+                Your Investment DNA
+              </div>
               <div style={{ fontSize: 11.5, color: "var(--muted)", marginTop: 2 }}>
                 {dnaPrefs.goal} · {dnaPrefs.horizon} · {dnaPrefs.risk}
               </div>
             </div>
-            <button type="button" className="n-btn n-btn-outline sm" onClick={() => { resetDnaWizard(); setStep(0); }}>
+            <button
+              type="button"
+              className="n-btn n-btn-outline sm"
+              onClick={() => {
+                resetDnaWizard();
+                setStep(0);
+              }}
+            >
               <RotateCcw size={13} /> Retake
             </button>
           </div>
         </div>
         <div className="n-muted" style={{ fontSize: 11.5 }}>
-          Ranked by transparent criteria: expense ratio, rolling consistency, and category-relative returns. This is
-          not personalised investment advice.
+          Ranked by transparent criteria: expense ratio, rolling consistency, and category-relative
+          returns. This is not personalised investment advice.
         </div>
         <div className="n-col" style={{ gap: 10 }}>
           {dnaResults.map((r, i) => (
@@ -198,9 +210,19 @@ function RankSegment() {
 
   const steps = [
     { label: "What's your goal?", options: DNA_GOALS, value: goal, set: setGoal },
-    { label: "What's your investment horizon?", options: DNA_HORIZONS, value: horizon, set: setHorizon },
+    {
+      label: "What's your investment horizon?",
+      options: DNA_HORIZONS,
+      value: horizon,
+      set: setHorizon,
+    },
     { label: "What's your risk appetite?", options: DNA_RISKS, value: risk, set: setRisk },
-    { label: "What matters most to you?", options: DNA_PRIORITIES, value: priority, set: setPriority },
+    {
+      label: "What matters most to you?",
+      options: DNA_PRIORITIES,
+      value: priority,
+      set: setPriority,
+    },
   ] as const;
 
   const current = steps[step];
@@ -233,7 +255,11 @@ function RankSegment() {
       </div>
       <div className="n-row" style={{ marginTop: 8 }}>
         {step > 0 && (
-          <button type="button" className="n-btn n-btn-outline" onClick={() => setStep((s) => s - 1)}>
+          <button
+            type="button"
+            className="n-btn n-btn-outline"
+            onClick={() => setStep((s) => s - 1)}
+          >
             Back
           </button>
         )}
@@ -282,7 +308,9 @@ function CompareSegment() {
 
   return (
     <div className="n-col" style={{ gap: 14 }}>
-      <div className="n-muted" style={{ fontSize: 12 }}>Pick up to 3 Regular funds to compare side by side.</div>
+      <div className="n-muted" style={{ fontSize: 12 }}>
+        Pick up to 3 Regular funds to compare side by side.
+      </div>
       <div className="n-pillrow">
         {FUNDS.map((f) => (
           <button
@@ -302,20 +330,36 @@ function CompareSegment() {
             <TrendingUp size={22} />
           </span>
           <span className="n-empty-title">Select funds to compare</span>
-          <span className="n-empty-body">Choose from the chips above. Comparison updates instantly.</span>
+          <span className="n-empty-body">
+            Choose from the chips above. Comparison updates instantly.
+          </span>
         </div>
       ) : (
         <div className="n-card" style={{ overflowX: "auto", padding: 0 }}>
           <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 12 }}>
             <thead>
               <tr>
-                <th style={{ textAlign: "left", padding: "12px 12px", color: "var(--muted)", fontWeight: 700 }}>
+                <th
+                  style={{
+                    textAlign: "left",
+                    padding: "12px 12px",
+                    color: "var(--muted)",
+                    fontWeight: 700,
+                  }}
+                >
                   &nbsp;
                 </th>
                 {compareFunds.map((f) => (
                   <th key={f.id} style={{ textAlign: "left", padding: "12px 10px", minWidth: 118 }}>
                     <div style={{ fontWeight: 800, fontSize: 12 }}>{f.name}</div>
-                    <div style={{ color: "var(--faint)", fontWeight: 500, fontSize: 10.5, marginTop: 2 }}>
+                    <div
+                      style={{
+                        color: "var(--faint)",
+                        fontWeight: 500,
+                        fontSize: 10.5,
+                        marginTop: 2,
+                      }}
+                    >
                       {f.amc}
                     </div>
                   </th>
@@ -325,7 +369,9 @@ function CompareSegment() {
             <tbody>
               {rows.map((row) => (
                 <tr key={row.label} style={{ borderTop: "1px solid var(--line)" }}>
-                  <td style={{ padding: "10px 12px", color: "var(--muted)", fontWeight: 600 }}>{row.label}</td>
+                  <td style={{ padding: "10px 12px", color: "var(--muted)", fontWeight: 600 }}>
+                    {row.label}
+                  </td>
                   {compareFunds.map((f) => (
                     <td key={f.id} style={{ padding: "10px 10px", fontWeight: 700 }}>
                       {row.get(f)}
@@ -366,7 +412,9 @@ function ToolsSegment() {
         <div className="n-field" style={{ marginTop: 10 }}>
           <div className="n-row between">
             <span className="n-label">Monthly SIP</span>
-            <span style={{ fontWeight: 800, fontSize: 13.5 }}>₹{amount.toLocaleString("en-IN")}</span>
+            <span style={{ fontWeight: 800, fontSize: 13.5 }}>
+              ₹{amount.toLocaleString("en-IN")}
+            </span>
           </div>
           <input
             type="range"
@@ -383,7 +431,14 @@ function ToolsSegment() {
             <span className="n-label">Time horizon</span>
             <span style={{ fontWeight: 800, fontSize: 13.5 }}>{years} years</span>
           </div>
-          <input type="range" min={1} max={30} step={1} value={years} onChange={(e) => setYears(Number(e.target.value))} />
+          <input
+            type="range"
+            min={1}
+            max={30}
+            step={1}
+            value={years}
+            onChange={(e) => setYears(Number(e.target.value))}
+          />
         </div>
 
         <div className="n-field">
@@ -391,7 +446,14 @@ function ToolsSegment() {
             <span className="n-label">Assumed annual return</span>
             <span style={{ fontWeight: 800, fontSize: 13.5 }}>{rate}%</span>
           </div>
-          <input type="range" min={4} max={18} step={0.5} value={rate} onChange={(e) => setRate(Number(e.target.value))} />
+          <input
+            type="range"
+            min={4}
+            max={18}
+            step={0.5}
+            value={rate}
+            onChange={(e) => setRate(Number(e.target.value))}
+          />
         </div>
 
         <div className="n-divider" style={{ margin: "14px 0" }} />
@@ -399,7 +461,9 @@ function ToolsSegment() {
         <div className="n-row between">
           <div>
             <div className="n-label">Invested</div>
-            <div style={{ fontWeight: 800, fontSize: 15 }}>₹{Math.round(invested).toLocaleString("en-IN")}</div>
+            <div style={{ fontWeight: 800, fontSize: 15 }}>
+              ₹{Math.round(invested).toLocaleString("en-IN")}
+            </div>
           </div>
           <div style={{ textAlign: "right" }}>
             <div className="n-label">Illustrative value</div>
@@ -411,8 +475,8 @@ function ToolsSegment() {
 
         <div className="n-illustrative-note" style={{ marginTop: 12 }}>
           <X size={13} style={{ marginTop: 1, flexShrink: 0, transform: "rotate(45deg)" }} />
-          Illustrative future value only, not a forecast or guarantee. Actual returns depend on market performance
-          and the fund chosen.
+          Illustrative future value only, not a forecast or guarantee. Actual returns depend on
+          market performance and the fund chosen.
         </div>
       </div>
     </div>

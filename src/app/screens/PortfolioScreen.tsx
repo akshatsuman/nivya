@@ -43,30 +43,42 @@ function pulseFor(h: HoldingView): keyof typeof PULSE_LABEL {
 }
 
 const DEMO_HEADLINES = [
-  { category: "Large Cap", text: "Large-cap category flows stayed steady this quarter, per demo AMFI-style data." },
-  { category: "Mid Cap", text: "Mid-cap category volatility ticked up slightly over the past month (demo)." },
-  { category: "Corporate Bond", text: "Corporate bond spreads held range-bound over the past quarter (demo)." },
-  { category: "Small Cap", text: "Small-cap category saw higher-than-usual dispersion across funds (demo)." },
+  {
+    category: "Large Cap",
+    text: "Large-cap category flows stayed steady this quarter, per demo AMFI-style data.",
+  },
+  {
+    category: "Mid Cap",
+    text: "Mid-cap category volatility ticked up slightly over the past month (demo).",
+  },
+  {
+    category: "Corporate Bond",
+    text: "Corporate bond spreads held range-bound over the past quarter (demo).",
+  },
+  {
+    category: "Small Cap",
+    text: "Small-cap category saw higher-than-usual dispersion across funds (demo).",
+  },
 ];
 
 export default function PortfolioScreen() {
   useShellAppBar({ title: "Portfolio", subtitle: "Statement · holdings · insights" }, []);
   const navigate = useNavigate();
-  const { holdings, totalInvested, totalCurrentValue, totalGainValue, totalGainPct, plans } = useAppState();
+  const { holdings, totalInvested, totalCurrentValue, totalGainValue, totalGainPct, plans } =
+    useAppState();
   const [tab, setTab] = useState<Tab>("Overview");
   const [range, setRange] = useState<Range>("1Y");
 
   const fmt = (n: number) => `₹${Math.round(n).toLocaleString("en-IN")}`;
   const isPositive = totalGainValue >= 0;
 
-  const chartData = useMemo(
-    () => PORTFOLIO_TREND.slice(-RANGE_POINTS[range]),
-    [range]
-  );
+  const chartData = useMemo(() => PORTFOLIO_TREND.slice(-RANGE_POINTS[range]), [range]);
 
   const categoryAllocation = useMemo(() => {
     const map = new Map<string, number>();
-    holdings.forEach((h) => map.set(h.fund.category, (map.get(h.fund.category) ?? 0) + h.currentValue));
+    holdings.forEach((h) =>
+      map.set(h.fund.category, (map.get(h.fund.category) ?? 0) + h.currentValue),
+    );
     return Array.from(map.entries())
       .map(([name, value]) => ({ name, value }))
       .sort((a, b) => b.value - a.value);
@@ -99,7 +111,12 @@ export default function PortfolioScreen() {
     <div className="n-page n-portfolio-desk">
       <div className="n-tabs grow">
         {(["Overview", "Holdings", "Insights"] as Tab[]).map((t) => (
-          <button key={t} type="button" className={`n-tab ${tab === t ? "active" : ""}`} onClick={() => setTab(t)}>
+          <button
+            key={t}
+            type="button"
+            className={`n-tab ${tab === t ? "active" : ""}`}
+            onClick={() => setTab(t)}
+          >
             {t}
           </button>
         ))}
@@ -159,7 +176,10 @@ export default function PortfolioScreen() {
                         border: "1px solid #E7DECC",
                         background: "#FCFAF4",
                       }}
-                      formatter={(v: number) => [fmt(v * (totalCurrentValue / (PORTFOLIO_TREND.at(-1)?.value || 1))), "Illustrative value"]}
+                      formatter={(v: number) => [
+                        fmt(v * (totalCurrentValue / (PORTFOLIO_TREND.at(-1)?.value || 1))),
+                        "Illustrative value",
+                      ]}
                     />
                     <Area
                       type="monotone"
@@ -173,7 +193,8 @@ export default function PortfolioScreen() {
                 </ResponsiveContainer>
               </div>
               <p className="n-statement-note">
-                Illustrative NAV path for statement view, not a live market feed. Past performance ≠ future results.
+                Illustrative NAV path for statement view, not a live market feed. Past performance ≠
+                future results.
               </p>
             </div>
 
@@ -184,7 +205,9 @@ export default function PortfolioScreen() {
               </div>
               <div className="n-stat-tile static">
                 <span className="n-metric-label">Equity / debt mix</span>
-                <span className="n-stat-value">{equityPct.toFixed(0)}% / {debtPct.toFixed(0)}%</span>
+                <span className="n-stat-value">
+                  {equityPct.toFixed(0)}% / {debtPct.toFixed(0)}%
+                </span>
               </div>
               <div className="n-stat-tile static">
                 <span className="n-metric-label">Schemes · active plans</span>
@@ -240,7 +263,9 @@ export default function PortfolioScreen() {
                         style={{ background: DONUT_COLORS[i % DONUT_COLORS.length] }}
                       />
                       <span className="n-alloc-name">{c.name}</span>
-                      <span className="n-alloc-pct">{((c.value / totalCurrentValue) * 100).toFixed(0)}%</span>
+                      <span className="n-alloc-pct">
+                        {((c.value / totalCurrentValue) * 100).toFixed(0)}%
+                      </span>
                       <span className="n-alloc-val">{fmt(c.value)}</span>
                     </div>
                   ))}
@@ -325,7 +350,11 @@ export default function PortfolioScreen() {
                       <td>{fmt(h.currentValue)}</td>
                       <td>
                         <span className={`n-fund-change ${h.gainPct >= 0 ? "pos" : "neg"}`}>
-                          {h.gainPct >= 0 ? <ArrowUpRight size={12} /> : <ArrowDownRight size={12} />}
+                          {h.gainPct >= 0 ? (
+                            <ArrowUpRight size={12} />
+                          ) : (
+                            <ArrowDownRight size={12} />
+                          )}
                           {Math.abs(h.gainPct).toFixed(1)}%
                         </span>
                       </td>
@@ -356,7 +385,10 @@ export default function PortfolioScreen() {
                   {h.units.toFixed(2)} units · Avg NAV ₹{h.avgNav.toFixed(2)} · XIRR ~{h.xirr}%
                 </div>
                 <div className="n-holding-bar">
-                  <div className="n-holding-bar-fill" style={{ width: `${Math.min(100, h.portionOfPortfolioPct)}%` }} />
+                  <div
+                    className="n-holding-bar-fill"
+                    style={{ width: `${Math.min(100, h.portionOfPortfolioPct)}%` }}
+                  />
                 </div>
               </div>
               <div className="n-fund-side">
@@ -385,16 +417,23 @@ export default function PortfolioScreen() {
                   <span style={{ fontWeight: 700 }}>{h.portionOfPortfolioPct.toFixed(0)}%</span>
                 </div>
                 <div className="n-holding-bar">
-                  <div className="n-holding-bar-fill" style={{ width: `${Math.min(100, h.portionOfPortfolioPct)}%` }} />
+                  <div
+                    className="n-holding-bar-fill"
+                    style={{ width: `${Math.min(100, h.portionOfPortfolioPct)}%` }}
+                  />
                 </div>
               </div>
             ))}
             {holdings.some((h) => h.portionOfPortfolioPct > 30) && (
               <div className="n-illustrative-note" style={{ marginTop: 4 }}>
-                <AlertTriangle size={13} style={{ flexShrink: 0, marginTop: 1 }} color="var(--amber-ink)" />
+                <AlertTriangle
+                  size={13}
+                  style={{ flexShrink: 0, marginTop: 1 }}
+                  color="var(--amber-ink)"
+                />
                 <span>
-                  One or more holdings make up over 30% of your portfolio. Consider whether this concentration matches
-                  your intent.
+                  One or more holdings make up over 30% of your portfolio. Consider whether this
+                  concentration matches your intent.
                 </span>
               </div>
             )}
@@ -432,7 +471,9 @@ export default function PortfolioScreen() {
                 <Newspaper size={11} /> Demo headlines
               </span>
             </div>
-            {DEMO_HEADLINES.filter((h) => holdings.some((hd) => hd.fund.category === h.category)).map((h) => (
+            {DEMO_HEADLINES.filter((h) =>
+              holdings.some((hd) => hd.fund.category === h.category),
+            ).map((h) => (
               <div key={h.category} className="n-headline-card">
                 <span className="n-chip">{h.category}</span>
                 <span style={{ fontSize: 12.5 }}>{h.text}</span>
@@ -442,8 +483,8 @@ export default function PortfolioScreen() {
 
           <div className="n-illustrative-note">
             <Info size={13} style={{ flexShrink: 0, marginTop: 1 }} />
-            Headlines and holding pulse are factual, past-tense, category-relative context, not predictions or
-            personalised advice on what to buy, sell, or hold.
+            Headlines and holding pulse are factual, past-tense, category-relative context, not
+            predictions or personalised advice on what to buy, sell, or hold.
           </div>
         </div>
       )}

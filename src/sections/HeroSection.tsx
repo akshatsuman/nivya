@@ -21,17 +21,47 @@ export default function HeroSection() {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ delay: 0.15 });
 
-      tl.fromTo(eyebrowRef.current, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 0);
+      tl.fromTo(
+        eyebrowRef.current,
+        { opacity: 0, y: 14 },
+        { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" },
+        0,
+      );
 
       if (headlineRef.current) {
         const words = headlineRef.current.querySelectorAll(".word");
-        tl.fromTo(words, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.55, stagger: 0.08, ease: "power3.out" }, 0.12);
+        tl.fromTo(
+          words,
+          { opacity: 0, y: 24 },
+          { opacity: 1, y: 0, duration: 0.55, stagger: 0.08, ease: "power3.out" },
+          0.12,
+        );
       }
 
-      tl.fromTo(subheadRef.current, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }, 0.55);
-      tl.fromTo(ctaRef.current, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 0.7);
-      tl.fromTo(trustRef.current, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 0.9);
-      tl.fromTo(panelRef.current, { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: 1.0, ease: "expo.out" }, 0.3);
+      tl.fromTo(
+        subheadRef.current,
+        { opacity: 0, y: 16 },
+        { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" },
+        0.55,
+      );
+      tl.fromTo(
+        ctaRef.current,
+        { opacity: 0, y: 12 },
+        { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" },
+        0.7,
+      );
+      tl.fromTo(
+        trustRef.current,
+        { opacity: 0, y: 10 },
+        { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" },
+        0.9,
+      );
+      tl.fromTo(
+        panelRef.current,
+        { opacity: 0, y: 34 },
+        { opacity: 1, y: 0, duration: 1.0, ease: "expo.out" },
+        0.3,
+      );
     }, sectionRef);
 
     return () => ctx.revert();
@@ -104,8 +134,8 @@ export default function HeroSection() {
               ref={subheadRef}
               className="mt-5 max-w-lg font-sans text-[clamp(15px,2.2vw,17px)] leading-relaxed text-ink-soft opacity-0 sm:mt-6"
             >
-              Explore Mutual Funds with transparent data, easy comparisons, and
-              insights designed to help you invest with confidence.
+              Explore Mutual Funds with transparent data, easy comparisons, and insights designed to
+              help you invest with confidence.
               <br />
               You choose, we execute.
             </p>
@@ -152,7 +182,10 @@ export default function HeroSection() {
               ) : null}
             </form>
 
-            <div ref={trustRef} className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3 opacity-0 sm:mt-11">
+            <div
+              ref={trustRef}
+              className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3 opacity-0 sm:mt-11"
+            >
               <div className="flex items-center gap-2 text-ink-soft">
                 <ShieldCheck className="h-4 w-4 text-evergreen" strokeWidth={2} />
                 <span className="font-sans text-[13px] sm:text-[13.5px]">

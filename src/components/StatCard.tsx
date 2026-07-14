@@ -39,7 +39,7 @@ export default function StatCard({
           requestAnimationFrame(animate);
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.5 },
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
@@ -61,13 +61,9 @@ export default function StatCard({
       <span className="block whitespace-nowrap font-mono text-[31px] md:text-[35px] font-600 leading-none text-ink">
         {displayValue}
       </span>
-      <span className="mt-3 block font-sans text-[15px] font-600 text-ink">
-        {label}
-      </span>
+      <span className="mt-3 block font-sans text-[15px] font-600 text-ink">{label}</span>
       {sublabel && (
-        <span className="mt-1 block font-sans text-[13.5px] text-ink-mute">
-          {sublabel}
-        </span>
+        <span className="mt-1 block font-sans text-[13.5px] text-ink-mute">{sublabel}</span>
       )}
     </div>
   );

@@ -21,7 +21,11 @@ export default function TestimonialCard({ quote, name, detail, avatar }: Testimo
       </p>
 
       <div className="mt-7 flex items-center gap-4 border-t border-line pt-6">
-        <img src={avatar} alt={name} className="h-11 w-11 rounded-full object-cover ring-2 ring-line" />
+        <img
+          src={avatar}
+          alt={name}
+          className="h-11 w-11 rounded-full object-cover ring-2 ring-line"
+        />
         <div>
           <p className="font-display text-[17px] font-500 text-ink">{name}</p>
           <p className="font-sans text-[13px] text-ink-mute">{detail}</p>

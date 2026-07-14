@@ -25,7 +25,7 @@ export default function HomeScreen() {
       title: `Good morning, ${session?.name?.split(" ")[0] ?? "Investor"}`,
       subtitle: "Portfolio overview",
     },
-    [session?.name]
+    [session?.name],
   );
   const navigate = useNavigate();
   const {
@@ -41,10 +41,7 @@ export default function HomeScreen() {
   const [range, setRange] = useState<Range>("1Y");
   const [hoveredFund, setHoveredFund] = useState<string | null>(null);
 
-  const chartData = useMemo(
-    () => PORTFOLIO_TREND.slice(-RANGE_POINTS[range]),
-    [range]
-  );
+  const chartData = useMemo(() => PORTFOLIO_TREND.slice(-RANGE_POINTS[range]), [range]);
   const topHoldings = holdings.slice(0, 6);
   const activePlans = plans.filter((p) => p.status === "Active").length;
   const unread = notifications.filter((n) => !n.read).length;
@@ -56,15 +53,9 @@ export default function HomeScreen() {
   return (
     <div className="n-page n-home-desk">
       {kycStatus !== "verified" && (
-        <button
-          type="button"
-          className="n-banner-kyc"
-          onClick={() => navigate("/app/profile")}
-        >
+        <button type="button" className="n-banner-kyc" onClick={() => navigate("/app/profile")}>
           <Sparkles size={16} />
-          <span>
-            KYC still pending. Complete it to place orders without interruption.
-          </span>
+          <span>KYC still pending. Complete it to place orders without interruption.</span>
           <ChevronRight size={16} />
         </button>
       )}
@@ -189,9 +180,7 @@ export default function HomeScreen() {
                   onClick={() => navigate("/app/plans")}
                 >
                   <span className={`n-plan-chip-type ${p.type}`}>{p.type}</span>
-                  <span className="n-plan-chip-name">
-                    {fund?.name ?? p.fundId}
-                  </span>
+                  <span className="n-plan-chip-name">{fund?.name ?? p.fundId}</span>
                   <span className="n-plan-chip-amt">
                     ₹{p.amount.toLocaleString("en-IN")} · {p.nextDate}
                   </span>
@@ -207,7 +196,11 @@ export default function HomeScreen() {
             <span className="n-section-title">Holdings</span>
             <p className="n-section-sub">{holdings.length} Regular-plan schemes</p>
           </div>
-          <button type="button" className="n-section-link" onClick={() => navigate("/app/portfolio")}>
+          <button
+            type="button"
+            className="n-section-link"
+            onClick={() => navigate("/app/portfolio")}
+          >
             Full portfolio <ChevronRight size={13} />
           </button>
         </div>

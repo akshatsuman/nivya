@@ -67,7 +67,7 @@ export default function RankingMechanismSection() {
           stagger: 0.1,
           ease: "power2.out",
           scrollTrigger: { trigger: sectionRef.current, start: "top 80%", once: true },
-        }
+        },
       );
       gsap.fromTo(
         boardRef.current?.children || [],
@@ -79,7 +79,7 @@ export default function RankingMechanismSection() {
           stagger: 0.1,
           ease: "power2.out",
           scrollTrigger: { trigger: boardRef.current, start: "top 88%", once: true },
-        }
+        },
       );
     }, sectionRef);
     return () => ctx.revert();

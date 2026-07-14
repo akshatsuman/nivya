@@ -1,11 +1,5 @@
 import { useNavigate } from "react-router";
-import {
-  AlertTriangle,
-  CheckCircle2,
-  ChevronRight,
-  Compass,
-  Sparkles,
-} from "lucide-react";
+import { AlertTriangle, CheckCircle2, ChevronRight, Compass, Sparkles } from "lucide-react";
 import { useAppState } from "../AppState";
 
 const ICONS = {
@@ -28,7 +22,11 @@ export default function InsightRail() {
           <div className="n-rail-kicker">Alerts</div>
           <div className="n-rail-title">Smart alerts</div>
         </div>
-        <button type="button" className="n-section-link" onClick={() => navigate("/app/notifications")}>
+        <button
+          type="button"
+          className="n-section-link"
+          onClick={() => navigate("/app/notifications")}
+        >
           All <ChevronRight size={13} />
         </button>
       </div>

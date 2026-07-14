@@ -5,19 +5,19 @@
 @layer base {
   :root {
     /* shadcn tokens mapped onto the Nivya light palette */
-    --background: 43 39% 94%;        /* paper */
-    --foreground: 214 49% 15%;       /* ink */
+    --background: 43 39% 94%; /* paper */
+    --foreground: 214 49% 15%; /* ink */
     --card: 44 50% 97%;
     --card-foreground: 214 49% 15%;
     --popover: 44 50% 97%;
     --popover-foreground: 214 49% 15%;
-    --primary: 167 76% 24%;          /* evergreen */
+    --primary: 167 76% 24%; /* evergreen */
     --primary-foreground: 44 50% 97%;
-    --secondary: 214 49% 15%;        /* ink */
+    --secondary: 214 49% 15%; /* ink */
     --secondary-foreground: 44 50% 97%;
     --muted: 43 35% 90%;
     --muted-foreground: 215 11% 40%;
-    --accent: 169 71% 36%;           /* teal */
+    --accent: 169 71% 36%; /* teal */
     --accent-foreground: 214 49% 15%;
     --destructive: 0 72% 48%;
     --destructive-foreground: 44 50% 97%;
@@ -33,11 +33,11 @@
 
   body {
     @apply bg-paper text-ink antialiased;
-    font-family: 'Hanken Grotesk Variable', 'Hanken Grotesk', system-ui, sans-serif;
+    font-family: "Hanken Grotesk Variable", "Hanken Grotesk", system-ui, sans-serif;
     /* barely-there paper grain so the ivory reads as stock, not flat #fff */
     background-image:
-      radial-gradient(circle at 18% 12%, rgba(180,146,90,0.05) 0%, transparent 42%),
-      radial-gradient(circle at 86% 88%, rgba(15,110,94,0.045) 0%, transparent 46%);
+      radial-gradient(circle at 18% 12%, rgba(180, 146, 90, 0.05) 0%, transparent 42%),
+      radial-gradient(circle at 86% 88%, rgba(15, 110, 94, 0.045) 0%, transparent 46%);
     background-attachment: fixed;
     overflow-x: hidden;
   }
@@ -59,7 +59,7 @@
 
   ::selection {
     background: rgba(15, 110, 94, 0.18);
-    color: #14233B;
+    color: #14233b;
   }
 }
 
@@ -88,49 +88,51 @@
   .eyebrow {
     @apply inline-flex items-center gap-2.5 font-mono font-medium uppercase tracking-[0.16em];
     font-size: clamp(12px, 1.1vw, 14px);
-    color: #8C8676;
+    color: #8c8676;
   }
 
   /* Hairline rule used to frame editorial blocks */
   .rule {
     @apply h-px w-full;
-    background: linear-gradient(90deg, transparent, #DCD1B9 12%, #DCD1B9 88%, transparent);
+    background: linear-gradient(90deg, transparent, #dcd1b9 12%, #dcd1b9 88%, transparent);
   }
 
   /* Ink-on-paper primary button */
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 font-sans text-[15px] font-semibold transition-all duration-200 cursor-pointer;
-    background: #0F6E5E;
-    color: #FCFAF4;
-    box-shadow: 0 10px 26px -12px rgba(15,110,94,0.7);
+    background: #0f6e5e;
+    color: #fcfaf4;
+    box-shadow: 0 10px 26px -12px rgba(15, 110, 94, 0.7);
   }
   .btn-primary:hover {
-    background: #0B5749;
+    background: #0b5749;
     transform: translateY(-1px);
-    box-shadow: 0 16px 32px -14px rgba(15,110,94,0.75);
+    box-shadow: 0 16px 32px -14px rgba(15, 110, 94, 0.75);
   }
-  .btn-primary:active { transform: translateY(0); }
+  .btn-primary:active {
+    transform: translateY(0);
+  }
 
   .btn-ghost {
     @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 font-sans text-[15px] font-semibold transition-all duration-200 cursor-pointer;
     background: transparent;
-    color: #14233B;
-    border: 1.5px solid #DCD1B9;
+    color: #14233b;
+    border: 1.5px solid #dcd1b9;
   }
   .btn-ghost:hover {
-    border-color: #14233B;
-    background: rgba(20,35,59,0.03);
+    border-color: #14233b;
+    background: rgba(20, 35, 59, 0.03);
   }
 
   /* The signature surface: a 'folio statement' on warm stock */
   .statement {
-    background: linear-gradient(180deg, #FDFBF6 0%, #FBF7EF 100%);
-    border: 1px solid #EAE1CF;
+    background: linear-gradient(180deg, #fdfbf6 0%, #fbf7ef 100%);
+    border: 1px solid #eae1cf;
   }
 
   /* Perforation / passbook divider */
   .perf {
-    background-image: radial-gradient(circle, #DCD1B9 1.1px, transparent 1.3px);
+    background-image: radial-gradient(circle, #dcd1b9 1.1px, transparent 1.3px);
     background-size: 9px 2px;
     background-repeat: repeat-x;
     height: 2px;
@@ -139,12 +141,12 @@
 
   /* Faint ledger ruling for statement backgrounds */
   .ledger-lines {
-    background-image: linear-gradient(rgba(20,35,59,0.045) 1px, transparent 1px);
+    background-image: linear-gradient(rgba(20, 35, 59, 0.045) 1px, transparent 1px);
     background-size: 100% 34px;
   }
 
   .text-evergreen-grad {
-    background: linear-gradient(110deg, #0F6E5E 0%, #1AA08C 100%);
+    background: linear-gradient(110deg, #0f6e5e 0%, #1aa08c 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -157,7 +159,7 @@ input[type="range"] {
   appearance: none;
   width: 100%;
   height: 5px;
-  background: #E3D8C0;
+  background: #e3d8c0;
   border-radius: 3px;
   outline: none;
 }
@@ -167,28 +169,39 @@ input[type="range"]::-webkit-slider-thumb {
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: #0F6E5E;
-  border: 3px solid #FCFAF4;
+  background: #0f6e5e;
+  border: 3px solid #fcfaf4;
   cursor: pointer;
-  box-shadow: 0 3px 10px rgba(15,110,94,0.4);
+  box-shadow: 0 3px 10px rgba(15, 110, 94, 0.4);
   transition: transform 0.15s ease-out;
 }
-input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.12); }
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.12);
+}
 input[type="range"]::-moz-range-thumb {
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: #0F6E5E;
+  background: #0f6e5e;
   cursor: pointer;
-  border: 3px solid #FCFAF4;
-  box-shadow: 0 3px 10px rgba(15,110,94,0.4);
+  border: 3px solid #fcfaf4;
+  box-shadow: 0 3px 10px rgba(15, 110, 94, 0.4);
 }
 
 /* Lenis smooth scroll */
-html.lenis, html.lenis body { height: auto; }
-.lenis.lenis-smooth { scroll-behavior: auto !important; }
-.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
-.lenis.lenis-stopped { overflow: hidden; }
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
 
 @media (prefers-reduced-motion: reduce) {
   *,

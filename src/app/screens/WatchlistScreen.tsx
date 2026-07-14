@@ -16,7 +16,7 @@ export default function WatchlistScreen() {
       onBack: () => navigate(-1),
       showWatchlist: false,
     },
-    [watchlist.length]
+    [watchlist.length],
   );
 
   const funds = watchlist.map((id) => getFund(id)).filter(Boolean);
@@ -30,7 +30,11 @@ export default function WatchlistScreen() {
           </span>
           <span className="n-empty-title">No funds watched yet</span>
           <span className="n-empty-body">Star funds from Explore to keep them here.</span>
-          <button type="button" className="n-btn n-btn-primary sm" onClick={() => navigate("/app/explore")}>
+          <button
+            type="button"
+            className="n-btn n-btn-primary sm"
+            onClick={() => navigate("/app/explore")}
+          >
             Browse funds
           </button>
         </div>
@@ -54,7 +58,11 @@ export default function WatchlistScreen() {
                 <div className="n-fund-side">
                   <div className="n-fund-nav">₹{fund.nav.toFixed(2)}</div>
                   <div className={`n-fund-change ${fund.navChangePct >= 0 ? "pos" : "neg"}`}>
-                    {fund.navChangePct >= 0 ? <ArrowUpRight size={12} /> : <ArrowDownRight size={12} />}
+                    {fund.navChangePct >= 0 ? (
+                      <ArrowUpRight size={12} />
+                    ) : (
+                      <ArrowDownRight size={12} />
+                    )}
                     {Math.abs(fund.navChangePct).toFixed(2)}%
                   </div>
                 </div>
@@ -70,7 +78,7 @@ export default function WatchlistScreen() {
                   <Star size={17} fill="currentColor" />
                 </button>
               </div>
-            ) : null
+            ) : null,
           )}
         </div>
       )}

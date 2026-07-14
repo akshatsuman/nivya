@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
@@ -41,39 +41,42 @@ module.exports = {
 
         /* ── Nivya : private-wealth-office palette ─────────────────
            Warm ivory paper, deep ink-navy, evergreen growth, brass.  */
-        paper: "#F7F3EA",          // page background (warm bone)
+        paper: "#F7F3EA", // page background (warm bone)
         "paper-raised": "#FCFAF4", // cards / raised surfaces
-        "paper-deep": "#EFE8D9",   // deeper bands, insets
-        ink: "#14233B",            // primary text / deep navy (trust)
-        "ink-soft": "#5B6573",     // secondary text
-        "ink-mute": "#8C8676",     // captions, warm muted
-        evergreen: "#0F6E5E",      // growth accent / primary CTA
+        "paper-deep": "#EFE8D9", // deeper bands, insets
+        ink: "#14233B", // primary text / deep navy (trust)
+        "ink-soft": "#5B6573", // secondary text
+        "ink-mute": "#8C8676", // captions, warm muted
+        evergreen: "#0F6E5E", // growth accent / primary CTA
         "evergreen-deep": "#0B5749", // CTA hover
-        teal: "#1AA08C",           // bright highlight (echoes the logo)
-        gold: "#B4925A",           // brass : premium, used sparingly
+        teal: "#1AA08C", // bright highlight (echoes the logo)
+        gold: "#B4925A", // brass : premium, used sparingly
         "gold-soft": "#CBB07E",
-        line: "#E7DECC",           // warm hairline on paper
+        line: "#E7DECC", // warm hairline on paper
         "line-strong": "#DCD1B9",
       },
       fontFamily: {
-        display: ['Fraunces Variable', 'Fraunces', 'Georgia', 'serif'],
-        sans: ['Hanken Grotesk Variable', 'Hanken Grotesk', 'system-ui', 'sans-serif'],
-        mono: ['IBM Plex Mono', 'ui-monospace', 'monospace'],
+        display: ["Fraunces Variable", "Fraunces", "Georgia", "serif"],
+        sans: ["Hanken Grotesk Variable", "Hanken Grotesk", "system-ui", "sans-serif"],
+        mono: ["IBM Plex Mono", "ui-monospace", "monospace"],
       },
       fontSize: {
-        display: ['76px', { lineHeight: '1.02', letterSpacing: '-0.02em', fontWeight: '500' }],
-        "display-mobile": ['42px', { lineHeight: '1.04', letterSpacing: '-0.015em', fontWeight: '500' }],
-        h1: ['48px', { lineHeight: '1.08', letterSpacing: '-0.015em', fontWeight: '500' }],
-        "h1-mobile": ['33px', { lineHeight: '1.1', letterSpacing: '-0.01em', fontWeight: '500' }],
-        h2: ['32px', { lineHeight: '1.16', letterSpacing: '-0.01em', fontWeight: '500' }],
-        "h2-mobile": ['25px', { lineHeight: '1.18', letterSpacing: '-0.005em', fontWeight: '500' }],
-        h3: ['23px', { lineHeight: '1.3', fontWeight: '500' }],
-        "h3-mobile": ['20px', { lineHeight: '1.3', fontWeight: '500' }],
-        h4: ['18px', { lineHeight: '1.4', letterSpacing: '0', fontWeight: '600' }],
-        body: ['16.5px', { lineHeight: '1.62', letterSpacing: '0', fontWeight: '400' }],
-        "body-mobile": ['15.5px', { lineHeight: '1.6', letterSpacing: '0', fontWeight: '400' }],
-        "body-small": ['14.5px', { lineHeight: '1.55', letterSpacing: '0', fontWeight: '400' }],
-        caption: ['12px', { lineHeight: '1.4', letterSpacing: '0.02em', fontWeight: '500' }],
+        display: ["76px", { lineHeight: "1.02", letterSpacing: "-0.02em", fontWeight: "500" }],
+        "display-mobile": [
+          "42px",
+          { lineHeight: "1.04", letterSpacing: "-0.015em", fontWeight: "500" },
+        ],
+        h1: ["48px", { lineHeight: "1.08", letterSpacing: "-0.015em", fontWeight: "500" }],
+        "h1-mobile": ["33px", { lineHeight: "1.1", letterSpacing: "-0.01em", fontWeight: "500" }],
+        h2: ["32px", { lineHeight: "1.16", letterSpacing: "-0.01em", fontWeight: "500" }],
+        "h2-mobile": ["25px", { lineHeight: "1.18", letterSpacing: "-0.005em", fontWeight: "500" }],
+        h3: ["23px", { lineHeight: "1.3", fontWeight: "500" }],
+        "h3-mobile": ["20px", { lineHeight: "1.3", fontWeight: "500" }],
+        h4: ["18px", { lineHeight: "1.4", letterSpacing: "0", fontWeight: "600" }],
+        body: ["16.5px", { lineHeight: "1.62", letterSpacing: "0", fontWeight: "400" }],
+        "body-mobile": ["15.5px", { lineHeight: "1.6", letterSpacing: "0", fontWeight: "400" }],
+        "body-small": ["14.5px", { lineHeight: "1.55", letterSpacing: "0", fontWeight: "400" }],
+        caption: ["12px", { lineHeight: "1.4", letterSpacing: "0.02em", fontWeight: "500" }],
       },
       borderRadius: {
         xl: "calc(var(--radius) + 4px)",
@@ -135,4 +138,4 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
+};

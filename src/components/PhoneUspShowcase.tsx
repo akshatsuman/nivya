@@ -126,7 +126,9 @@ function ScreenRank() {
                 {fund.bars.map((b) => (
                   <div key={b.label}>
                     <div className="mb-0.5 flex justify-between">
-                      <span className="font-mono text-[6.5px] uppercase text-[#8C8676]">{b.label}</span>
+                      <span className="font-mono text-[6.5px] uppercase text-[#8C8676]">
+                        {b.label}
+                      </span>
                       <span className="font-mono text-[6.5px] text-[#14233B]">{b.v}</span>
                     </div>
                     <div className="h-[2px] overflow-hidden rounded-full bg-[#E7DECC]">
@@ -293,7 +295,9 @@ function ScreenInsights() {
             </h4>
           </div>
           <div className="text-right">
-            <p className="font-display text-[18px] font-medium leading-none text-[#14233B]">₹24.8L</p>
+            <p className="font-display text-[18px] font-medium leading-none text-[#14233B]">
+              ₹24.8L
+            </p>
             <p className="mt-0.5 inline-flex items-center gap-0.5 font-mono text-[8px] font-semibold text-[#0F6E5E]">
               <ArrowUpRight className="h-2.5 w-2.5" strokeWidth={2.5} />
               16.4% / yr
@@ -430,8 +434,7 @@ function PhoneFrame({ children, active }: { children: React.ReactNode; active: b
         className="absolute -bottom-5 left-[10%] right-[10%] h-7 rounded-[100%] transition-opacity duration-700"
         style={{
           opacity: active ? 0.5 : 0.18,
-          background:
-            "radial-gradient(ellipse at center, rgba(20,35,59,0.4) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse at center, rgba(20,35,59,0.4) 0%, transparent 70%)",
           filter: "blur(5px)",
         }}
       />
@@ -439,8 +442,7 @@ function PhoneFrame({ children, active }: { children: React.ReactNode; active: b
       <div
         className="relative h-full w-full overflow-hidden rounded-[2.05rem]"
         style={{
-          background:
-            "linear-gradient(145deg, #2A3548 0%, #14233B 42%, #0C1524 78%, #1A2436 100%)",
+          background: "linear-gradient(145deg, #2A3548 0%, #14233B 42%, #0C1524 78%, #1A2436 100%)",
           boxShadow: active
             ? "0 1px 0 rgba(255,255,255,0.12) inset, 0 -1px 0 rgba(0,0,0,0.35) inset, 0 36px 64px -28px rgba(20,35,59,0.55)"
             : "0 1px 0 rgba(255,255,255,0.08) inset, 0 16px 36px -24px rgba(20,35,59,0.45)",
@@ -622,11 +624,7 @@ export default function PhoneUspShowcase() {
           const isActive = slot === "active";
 
           return (
-            <div
-              key={slide.id}
-              className={SLOT_CLASS[slot]}
-              aria-hidden={!isActive}
-            >
+            <div key={slide.id} className={SLOT_CLASS[slot]} aria-hidden={!isActive}>
               <PhoneFrame active={isActive}>
                 <Screen />
               </PhoneFrame>

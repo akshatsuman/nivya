@@ -50,7 +50,7 @@ export default function FeatureHighlightsSection() {
           stagger: 0.1,
           ease: "power2.out",
           scrollTrigger: { trigger: headingRef.current, start: "top 85%", once: true },
-        }
+        },
       );
       if (gridRef.current) {
         gsap.fromTo(
@@ -63,7 +63,7 @@ export default function FeatureHighlightsSection() {
             stagger: 0.08,
             ease: "power2.out",
             scrollTrigger: { trigger: gridRef.current, start: "top 82%", once: true },
-          }
+          },
         );
       }
     }, sectionRef);
@@ -106,8 +106,7 @@ export default function FeatureHighlightsSection() {
               usp.accent === "gold"
                 ? "bg-gold/10 text-gold ring-gold/20"
                 : "bg-evergreen/8 text-evergreen ring-evergreen/14";
-            const num =
-              usp.accent === "gold" ? "text-gold/35" : "text-evergreen/30";
+            const num = usp.accent === "gold" ? "text-gold/35" : "text-evergreen/30";
 
             return (
               <article
