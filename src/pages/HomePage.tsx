@@ -6,6 +6,7 @@ import Navigation from "@/components/Navigation";
 import HeroSection from "@/sections/HeroSection";
 import TrustStatsSection from "@/sections/TrustStatsSection";
 import FeatureHighlightsSection from "@/sections/FeatureHighlightsSection";
+import AmcMarqueeSection from "@/sections/AmcMarqueeSection";
 import HowItWorksSection from "@/sections/HowItWorksSection";
 import RankingMechanismSection from "@/sections/RankingMechanismSection";
 import PortfolioInsightsSection from "@/sections/PortfolioInsightsSection";
@@ -43,6 +44,7 @@ export default function HomePage() {
       <main>
         <HeroSection />
         <FeatureHighlightsSection />
+        <AmcMarqueeSection />
         <TrustStatsSection />
         <HowItWorksSection />
         <RankingMechanismSection />

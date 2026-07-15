@@ -1,0 +1,331 @@
+[
+  {
+    "slug": "aditya-birla-sun-life",
+    "name": "Aditya Birla Sun Life Mutual Fund",
+    "domain": "mutualfund.adityabirlacapital.com",
+    "ok": true,
+    "website": "https://mutualfund.adityabirlacapital.com"
+  },
+  {
+    "slug": "angel-one",
+    "name": "Angel One Mutual Fund",
+    "domain": "angelonemf.com",
+    "ok": true,
+    "website": "https://angelonemf.com"
+  },
+  {
+    "slug": "axis",
+    "name": "Axis Mutual Fund",
+    "domain": "axismf.com",
+    "ok": true,
+    "website": "https://axismf.com"
+  },
+  {
+    "slug": "bajaj-finserv",
+    "name": "Bajaj Finserv Mutual Fund",
+    "domain": "bajajamc.com",
+    "ok": true,
+    "website": "https://bajajamc.com"
+  },
+  {
+    "slug": "baroda-bnp-paribas",
+    "name": "Baroda BNP Paribas Mutual Fund",
+    "domain": "barodabnpparibasmf.in",
+    "ok": true,
+    "website": "https://barodabnpparibasmf.in"
+  },
+  {
+    "slug": "bank-of-india",
+    "name": "Bank of India Mutual Fund",
+    "domain": "boimf.in",
+    "ok": true,
+    "website": "https://boimf.in"
+  },
+  {
+    "slug": "bandhan",
+    "name": "Bandhan Mutual Fund",
+    "domain": "bandhanmutual.com",
+    "ok": true,
+    "website": "https://bandhanmutual.com"
+  },
+  {
+    "slug": "canara-robeco",
+    "name": "Canara Robeco Mutual Fund",
+    "domain": "canararobeco.com",
+    "ok": true,
+    "website": "https://canararobeco.com"
+  },
+  {
+    "slug": "capitalmind",
+    "name": "Capitalmind Mutual Fund",
+    "domain": "capitalmindmf.com",
+    "ok": true,
+    "website": "https://capitalmindmf.com"
+  },
+  {
+    "slug": "dsp",
+    "name": "DSP Mutual Fund",
+    "domain": "dspim.com",
+    "ok": true,
+    "website": "https://dspim.com"
+  },
+  {
+    "slug": "edelweiss",
+    "name": "Edelweiss Mutual Fund",
+    "domain": "edelweissmf.com",
+    "ok": true,
+    "website": "https://edelweissmf.com"
+  },
+  {
+    "slug": "franklin-templeton",
+    "name": "Franklin Templeton Mutual Fund",
+    "domain": "franklintempletonindia.com",
+    "ok": true,
+    "website": "https://franklintempletonindia.com"
+  },
+  {
+    "slug": "groww",
+    "name": "Groww Mutual Fund",
+    "domain": "growwmf.in",
+    "ok": true,
+    "website": "https://growwmf.in"
+  },
+  {
+    "slug": "hdfc",
+    "name": "HDFC Mutual Fund",
+    "domain": "hdfcfund.com",
+    "ok": true,
+    "website": "https://hdfcfund.com"
+  },
+  {
+    "slug": "helios",
+    "name": "Helios Mutual Fund",
+    "domain": "heliosmf.in",
+    "ok": true,
+    "website": "https://heliosmf.in"
+  },
+  {
+    "slug": "hsbc",
+    "name": "HSBC Mutual Fund",
+    "domain": "assetmanagement.hsbc.co.in",
+    "ok": true,
+    "website": "https://assetmanagement.hsbc.co.in"
+  },
+  {
+    "slug": "icici-prudential",
+    "name": "ICICI Prudential Mutual Fund",
+    "domain": "icicipruamc.com",
+    "ok": true,
+    "website": "https://icicipruamc.com"
+  },
+  {
+    "slug": "iti",
+    "name": "ITI Mutual Fund",
+    "domain": "itiamc.com",
+    "ok": true,
+    "website": "https://itiamc.com"
+  },
+  {
+    "slug": "invesco",
+    "name": "Invesco Mutual Fund",
+    "domain": "invescomutualfund.com",
+    "ok": true,
+    "website": "https://invescomutualfund.com"
+  },
+  {
+    "slug": "jio-blackrock",
+    "name": "Jio BlackRock Mutual Fund",
+    "domain": "jioblackrockamc.com",
+    "ok": true,
+    "website": "https://jioblackrockamc.com"
+  },
+  {
+    "slug": "jm-financial",
+    "name": "JM Financial Mutual Fund",
+    "domain": "jmfinancialmf.com",
+    "ok": true,
+    "website": "https://jmfinancialmf.com"
+  },
+  {
+    "slug": "kotak-mahindra",
+    "name": "Kotak Mahindra Mutual Fund",
+    "domain": "kotakmf.com",
+    "ok": true,
+    "website": "https://kotakmf.com"
+  },
+  {
+    "slug": "lic",
+    "name": "LIC Mutual Fund",
+    "domain": "licmf.com",
+    "ok": true,
+    "website": "https://licmf.com"
+  },
+  {
+    "slug": "mahindra-manulife",
+    "name": "Mahindra Manulife Mutual Fund",
+    "domain": "mahindramanulife.com",
+    "ok": true,
+    "website": "https://mahindramanulife.com"
+  },
+  {
+    "slug": "mirae-asset",
+    "name": "Mirae Asset Mutual Fund",
+    "domain": "miraeassetmf.co.in",
+    "ok": true,
+    "website": "https://miraeassetmf.co.in"
+  },
+  {
+    "slug": "motilal-oswal",
+    "name": "Motilal Oswal Mutual Fund",
+    "domain": "motilaloswalmf.com",
+    "ok": true,
+    "website": "https://motilaloswalmf.com"
+  },
+  {
+    "slug": "navi",
+    "name": "Navi Mutual Fund",
+    "domain": "navi.com",
+    "ok": true,
+    "website": "https://navi.com"
+  },
+  {
+    "slug": "nippon-india",
+    "name": "Nippon India Mutual Fund",
+    "domain": "mf.nipponindiaim.com",
+    "ok": true,
+    "website": "https://mf.nipponindiaim.com"
+  },
+  {
+    "slug": "nj",
+    "name": "NJ Mutual Fund",
+    "domain": "njmutualfund.com",
+    "ok": true,
+    "website": "https://njmutualfund.com"
+  },
+  {
+    "slug": "old-bridge",
+    "name": "Old Bridge Mutual Fund",
+    "domain": "oldbridgemf.com",
+    "ok": true,
+    "website": "https://oldbridgemf.com"
+  },
+  {
+    "slug": "pgim-india",
+    "name": "PGIM India Mutual Fund",
+    "domain": "pgimindiamf.com",
+    "ok": true,
+    "website": "https://pgimindiamf.com"
+  },
+  {
+    "slug": "ppfas",
+    "name": "PPFAS Mutual Fund",
+    "domain": "amc.ppfas.com",
+    "ok": true,
+    "website": "https://amc.ppfas.com"
+  },
+  {
+    "slug": "quant",
+    "name": "Quant Mutual Fund",
+    "domain": "quantmutual.com",
+    "ok": true,
+    "website": "https://quantmutual.com"
+  },
+  {
+    "slug": "quantum",
+    "name": "Quantum Mutual Fund",
+    "domain": "quantumamc.com",
+    "ok": true,
+    "website": "https://quantumamc.com"
+  },
+  {
+    "slug": "samco",
+    "name": "Samco Mutual Fund",
+    "domain": "samcomf.com",
+    "ok": true,
+    "website": "https://samcomf.com"
+  },
+  {
+    "slug": "sbi",
+    "name": "SBI Mutual Fund",
+    "domain": "sbimf.com",
+    "ok": true,
+    "website": "https://sbimf.com"
+  },
+  {
+    "slug": "shriram",
+    "name": "Shriram Mutual Fund",
+    "domain": "shriramamc.in",
+    "ok": true,
+    "website": "https://shriramamc.in"
+  },
+  {
+    "slug": "sundaram",
+    "name": "Sundaram Mutual Fund",
+    "domain": "sundarammutual.com",
+    "ok": true,
+    "website": "https://sundarammutual.com"
+  },
+  {
+    "slug": "trust",
+    "name": "Trust Mutual Fund",
+    "domain": "trustmf.com",
+    "ok": true,
+    "website": "https://trustmf.com"
+  },
+  {
+    "slug": "tata",
+    "name": "Tata Mutual Fund",
+    "domain": "tatamutualfund.com",
+    "ok": true,
+    "website": "https://tatamutualfund.com"
+  },
+  {
+    "slug": "taurus",
+    "name": "Taurus Mutual Fund",
+    "domain": "taurusmutualfund.com",
+    "ok": true,
+    "website": "https://taurusmutualfund.com"
+  },
+  {
+    "slug": "unifi",
+    "name": "Unifi Mutual Fund",
+    "domain": "unifimf.com",
+    "ok": true,
+    "website": "https://unifimf.com"
+  },
+  {
+    "slug": "union",
+    "name": "Union Mutual Fund",
+    "domain": "unionmf.com",
+    "ok": true,
+    "website": "https://unionmf.com"
+  },
+  {
+    "slug": "uti",
+    "name": "UTI Mutual Fund",
+    "domain": "utimf.com",
+    "ok": true,
+    "website": "https://utimf.com"
+  },
+  {
+    "slug": "whiteoak-capital",
+    "name": "WhiteOak Capital Mutual Fund",
+    "domain": "mf.whiteoakamc.com",
+    "ok": true,
+    "website": "https://mf.whiteoakamc.com"
+  },
+  {
+    "slug": "zerodha",
+    "name": "Zerodha Mutual Fund",
+    "domain": "zerodhafundhouse.com",
+    "ok": true,
+    "website": "https://zerodhafundhouse.com"
+  },
+  {
+    "slug": "360-one",
+    "name": "360 ONE Mutual Fund",
+    "domain": "360.one",
+    "ok": true,
+    "website": "https://360.one"
+  }
+]
