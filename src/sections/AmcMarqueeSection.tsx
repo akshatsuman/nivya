@@ -51,7 +51,7 @@ export default function AmcMarqueeSection() {
       <div className="content-container relative z-10 pb-2 pt-2 text-center sm:pb-3 sm:pt-3">
         <SectionOverline text="Fund houses" align="center" />
         <p className="mt-2 font-sans text-[13.5px] leading-snug text-ink-mute sm:text-[14px]">
-          Every major AMC on BSE StAR MF — one account
+          All major AMC's on one platform.
         </p>
       </div>
 

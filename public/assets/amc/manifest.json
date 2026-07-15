@@ -1,331 +1,338 @@
 [
   {
-    "slug": "aditya-birla-sun-life",
-    "name": "Aditya Birla Sun Life Mutual Fund",
-    "domain": "mutualfund.adityabirlacapital.com",
-    "ok": true,
-    "website": "https://mutualfund.adityabirlacapital.com"
-  },
-  {
-    "slug": "angel-one",
-    "name": "Angel One Mutual Fund",
-    "domain": "angelonemf.com",
-    "ok": true,
-    "website": "https://angelonemf.com"
-  },
-  {
-    "slug": "axis",
-    "name": "Axis Mutual Fund",
-    "domain": "axismf.com",
-    "ok": true,
-    "website": "https://axismf.com"
-  },
-  {
-    "slug": "bajaj-finserv",
-    "name": "Bajaj Finserv Mutual Fund",
-    "domain": "bajajamc.com",
-    "ok": true,
-    "website": "https://bajajamc.com"
-  },
-  {
-    "slug": "baroda-bnp-paribas",
-    "name": "Baroda BNP Paribas Mutual Fund",
-    "domain": "barodabnpparibasmf.in",
-    "ok": true,
-    "website": "https://barodabnpparibasmf.in"
-  },
-  {
-    "slug": "bank-of-india",
-    "name": "Bank of India Mutual Fund",
-    "domain": "boimf.in",
-    "ok": true,
-    "website": "https://boimf.in"
-  },
-  {
-    "slug": "bandhan",
-    "name": "Bandhan Mutual Fund",
-    "domain": "bandhanmutual.com",
-    "ok": true,
-    "website": "https://bandhanmutual.com"
-  },
-  {
-    "slug": "canara-robeco",
-    "name": "Canara Robeco Mutual Fund",
-    "domain": "canararobeco.com",
-    "ok": true,
-    "website": "https://canararobeco.com"
-  },
-  {
-    "slug": "capitalmind",
-    "name": "Capitalmind Mutual Fund",
-    "domain": "capitalmindmf.com",
-    "ok": true,
-    "website": "https://capitalmindmf.com"
-  },
-  {
-    "slug": "dsp",
-    "name": "DSP Mutual Fund",
-    "domain": "dspim.com",
-    "ok": true,
-    "website": "https://dspim.com"
-  },
-  {
-    "slug": "edelweiss",
-    "name": "Edelweiss Mutual Fund",
-    "domain": "edelweissmf.com",
-    "ok": true,
-    "website": "https://edelweissmf.com"
-  },
-  {
-    "slug": "franklin-templeton",
-    "name": "Franklin Templeton Mutual Fund",
-    "domain": "franklintempletonindia.com",
-    "ok": true,
-    "website": "https://franklintempletonindia.com"
-  },
-  {
-    "slug": "groww",
-    "name": "Groww Mutual Fund",
-    "domain": "growwmf.in",
-    "ok": true,
-    "website": "https://growwmf.in"
-  },
-  {
-    "slug": "hdfc",
-    "name": "HDFC Mutual Fund",
-    "domain": "hdfcfund.com",
-    "ok": true,
-    "website": "https://hdfcfund.com"
-  },
-  {
-    "slug": "helios",
-    "name": "Helios Mutual Fund",
-    "domain": "heliosmf.in",
-    "ok": true,
-    "website": "https://heliosmf.in"
-  },
-  {
-    "slug": "hsbc",
-    "name": "HSBC Mutual Fund",
-    "domain": "assetmanagement.hsbc.co.in",
-    "ok": true,
-    "website": "https://assetmanagement.hsbc.co.in"
-  },
-  {
-    "slug": "icici-prudential",
-    "name": "ICICI Prudential Mutual Fund",
-    "domain": "icicipruamc.com",
-    "ok": true,
-    "website": "https://icicipruamc.com"
-  },
-  {
-    "slug": "iti",
-    "name": "ITI Mutual Fund",
-    "domain": "itiamc.com",
-    "ok": true,
-    "website": "https://itiamc.com"
-  },
-  {
-    "slug": "invesco",
-    "name": "Invesco Mutual Fund",
-    "domain": "invescomutualfund.com",
-    "ok": true,
-    "website": "https://invescomutualfund.com"
-  },
-  {
-    "slug": "jio-blackrock",
-    "name": "Jio BlackRock Mutual Fund",
-    "domain": "jioblackrockamc.com",
-    "ok": true,
-    "website": "https://jioblackrockamc.com"
-  },
-  {
-    "slug": "jm-financial",
-    "name": "JM Financial Mutual Fund",
-    "domain": "jmfinancialmf.com",
-    "ok": true,
-    "website": "https://jmfinancialmf.com"
-  },
-  {
-    "slug": "kotak-mahindra",
-    "name": "Kotak Mahindra Mutual Fund",
-    "domain": "kotakmf.com",
-    "ok": true,
-    "website": "https://kotakmf.com"
-  },
-  {
-    "slug": "lic",
-    "name": "LIC Mutual Fund",
-    "domain": "licmf.com",
-    "ok": true,
-    "website": "https://licmf.com"
-  },
-  {
-    "slug": "mahindra-manulife",
-    "name": "Mahindra Manulife Mutual Fund",
-    "domain": "mahindramanulife.com",
-    "ok": true,
-    "website": "https://mahindramanulife.com"
-  },
-  {
-    "slug": "mirae-asset",
-    "name": "Mirae Asset Mutual Fund",
-    "domain": "miraeassetmf.co.in",
-    "ok": true,
-    "website": "https://miraeassetmf.co.in"
-  },
-  {
-    "slug": "motilal-oswal",
-    "name": "Motilal Oswal Mutual Fund",
-    "domain": "motilaloswalmf.com",
-    "ok": true,
-    "website": "https://motilaloswalmf.com"
-  },
-  {
-    "slug": "navi",
-    "name": "Navi Mutual Fund",
-    "domain": "navi.com",
-    "ok": true,
-    "website": "https://navi.com"
-  },
-  {
-    "slug": "nippon-india",
-    "name": "Nippon India Mutual Fund",
-    "domain": "mf.nipponindiaim.com",
-    "ok": true,
-    "website": "https://mf.nipponindiaim.com"
-  },
-  {
-    "slug": "nj",
-    "name": "NJ Mutual Fund",
-    "domain": "njmutualfund.com",
-    "ok": true,
-    "website": "https://njmutualfund.com"
-  },
-  {
-    "slug": "old-bridge",
-    "name": "Old Bridge Mutual Fund",
-    "domain": "oldbridgemf.com",
-    "ok": true,
-    "website": "https://oldbridgemf.com"
-  },
-  {
-    "slug": "pgim-india",
-    "name": "PGIM India Mutual Fund",
-    "domain": "pgimindiamf.com",
-    "ok": true,
-    "website": "https://pgimindiamf.com"
-  },
-  {
-    "slug": "ppfas",
-    "name": "PPFAS Mutual Fund",
-    "domain": "amc.ppfas.com",
-    "ok": true,
-    "website": "https://amc.ppfas.com"
-  },
-  {
-    "slug": "quant",
-    "name": "Quant Mutual Fund",
-    "domain": "quantmutual.com",
-    "ok": true,
-    "website": "https://quantmutual.com"
-  },
-  {
-    "slug": "quantum",
-    "name": "Quantum Mutual Fund",
-    "domain": "quantumamc.com",
-    "ok": true,
-    "website": "https://quantumamc.com"
-  },
-  {
-    "slug": "samco",
-    "name": "Samco Mutual Fund",
-    "domain": "samcomf.com",
-    "ok": true,
-    "website": "https://samcomf.com"
-  },
-  {
-    "slug": "sbi",
-    "name": "SBI Mutual Fund",
-    "domain": "sbimf.com",
-    "ok": true,
-    "website": "https://sbimf.com"
-  },
-  {
-    "slug": "shriram",
-    "name": "Shriram Mutual Fund",
-    "domain": "shriramamc.in",
-    "ok": true,
-    "website": "https://shriramamc.in"
-  },
-  {
-    "slug": "sundaram",
-    "name": "Sundaram Mutual Fund",
-    "domain": "sundarammutual.com",
-    "ok": true,
-    "website": "https://sundarammutual.com"
-  },
-  {
-    "slug": "trust",
-    "name": "Trust Mutual Fund",
-    "domain": "trustmf.com",
-    "ok": true,
-    "website": "https://trustmf.com"
-  },
-  {
-    "slug": "tata",
-    "name": "Tata Mutual Fund",
-    "domain": "tatamutualfund.com",
-    "ok": true,
-    "website": "https://tatamutualfund.com"
-  },
-  {
-    "slug": "taurus",
-    "name": "Taurus Mutual Fund",
-    "domain": "taurusmutualfund.com",
-    "ok": true,
-    "website": "https://taurusmutualfund.com"
-  },
-  {
-    "slug": "unifi",
-    "name": "Unifi Mutual Fund",
-    "domain": "unifimf.com",
-    "ok": true,
-    "website": "https://unifimf.com"
-  },
-  {
-    "slug": "union",
-    "name": "Union Mutual Fund",
-    "domain": "unionmf.com",
-    "ok": true,
-    "website": "https://unionmf.com"
-  },
-  {
-    "slug": "uti",
-    "name": "UTI Mutual Fund",
-    "domain": "utimf.com",
-    "ok": true,
-    "website": "https://utimf.com"
-  },
-  {
-    "slug": "whiteoak-capital",
-    "name": "WhiteOak Capital Mutual Fund",
-    "domain": "mf.whiteoakamc.com",
-    "ok": true,
-    "website": "https://mf.whiteoakamc.com"
-  },
-  {
-    "slug": "zerodha",
-    "name": "Zerodha Mutual Fund",
-    "domain": "zerodhafundhouse.com",
-    "ok": true,
-    "website": "https://zerodhafundhouse.com"
-  },
-  {
-    "slug": "360-one",
+    "id": "400047",
+    "slug": "360-one-mutual-fund",
     "name": "360 ONE Mutual Fund",
-    "domain": "360.one",
-    "ok": true,
-    "website": "https://360.one"
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400047.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/360-one-mutual-fund"
+  },
+  {
+    "id": "400075",
+    "slug": "abakkus-mutual-fund",
+    "name": "Abakkus Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400075.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/abakkus-mutual-fund"
+  },
+  {
+    "id": "400004",
+    "slug": "aditya-birla-sun-life-mutual-fund",
+    "name": "Aditya Birla Sun Life Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400004.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/aditya-birla-sun-life-mutual-fund"
+  },
+  {
+    "id": "400064",
+    "slug": "angel-one-mutual-fund",
+    "name": "Angel One Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400064.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/angel-one-mutual-fund"
+  },
+  {
+    "id": "400040",
+    "slug": "axis-mutual-fund",
+    "name": "Axis Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400040.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/axis-mutual-fund"
+  },
+  {
+    "id": "400060",
+    "slug": "bajaj-finserv-mutual-fund",
+    "name": "Bajaj Finserv Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400060.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/bajaj-finserv-mutual-fund"
+  },
+  {
+    "id": "400028",
+    "slug": "bandhan-mutual-fund",
+    "name": "Bandhan Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400028.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/bandhan-mutual-fund"
+  },
+  {
+    "id": "400034",
+    "slug": "bank-of-india-mutual-fund",
+    "name": "Bank of India Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400034.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/bank-of-india-mutual-fund"
+  },
+  {
+    "id": "400001",
+    "slug": "baroda-bnp-paribas-mutual-fund",
+    "name": "Baroda BNP Paribas Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400001.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/baroda-bnp-paribas-mutual-fund"
+  },
+  {
+    "id": "400006",
+    "slug": "canara-robeco-mutual-fund",
+    "name": "Canara Robeco Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400006.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/canara-robeco-mutual-fund"
+  },
+  {
+    "id": "400067",
+    "slug": "capitalmind-mutual-fund",
+    "name": "Capitalmind Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400067.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/capitalmind-mutual-fund"
+  },
+  {
+    "id": "400072",
+    "slug": "choice-mutual-fund",
+    "name": "Choice Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400072.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/choice-mutual-fund"
+  },
+  {
+    "id": "400009",
+    "slug": "dsp-mutual-fund",
+    "name": "DSP Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400009.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/dsp-mutual-fund"
+  },
+  {
+    "id": "400035",
+    "slug": "edelweiss-mutual-fund",
+    "name": "Edelweiss Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400035.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/edelweiss-mutual-fund"
+  },
+  {
+    "id": "400012",
+    "slug": "franklin-templeton-mutual-fund",
+    "name": "Franklin Templeton Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400012.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/franklin-templeton-mutual-fund"
+  },
+  {
+    "id": "400048",
+    "slug": "groww-mutual-fund",
+    "name": "Groww Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400048.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/groww-mutual-fund"
+  },
+  {
+    "id": "400013",
+    "slug": "hdfc-mutual-fund",
+    "name": "HDFC Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400013.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/hdfc-mutual-fund"
+  },
+  {
+    "id": "400061",
+    "slug": "helios-mutual-fund",
+    "name": "Helios Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400061.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/helios-mutual-fund"
+  },
+  {
+    "id": "400014",
+    "slug": "hsbc-mutual-fund",
+    "name": "HSBC Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400014.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/hsbc-mutual-fund"
+  },
+  {
+    "id": "400015",
+    "slug": "icici-prudential-mutual-fund",
+    "name": "ICICI Prudential Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400015.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/icici-prudential-mutual-fund"
+  },
+  {
+    "id": "400021",
+    "slug": "invesco-mutual-fund",
+    "name": "Invesco Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400021.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/invesco-mutual-fund"
+  },
+  {
+    "id": "400056",
+    "slug": "iti-mutual-fund",
+    "name": "ITI Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400056.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/iti-mutual-fund"
+  },
+  {
+    "id": "400017",
+    "slug": "jm-financial-mutual-fund",
+    "name": "JM Financial Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400017.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/jm-financial-mutual-fund"
+  },
+  {
+    "id": "400019",
+    "slug": "kotak-mahindra-mutual-fund",
+    "name": "Kotak Mahindra Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400019.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/kotak-mahindra-mutual-fund"
+  },
+  {
+    "id": "400020",
+    "slug": "lic-mutual-fund",
+    "name": "LIC Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400020.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/lic-mutual-fund"
+  },
+  {
+    "id": "400054",
+    "slug": "mahindra-manulife-mutual-fund",
+    "name": "Mahindra Manulife Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400054.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/mahindra-manulife-mutual-fund"
+  },
+  {
+    "id": "400033",
+    "slug": "mirae-asset-mutual-fund",
+    "name": "Mirae Asset Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400033.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/mirae-asset-mutual-fund"
+  },
+  {
+    "id": "400042",
+    "slug": "motilal-oswal-mutual-fund",
+    "name": "Motilal Oswal Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400042.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/motilal-oswal-mutual-fund"
+  },
+  {
+    "id": "400041",
+    "slug": "navi-mutual-fund",
+    "name": "Navi Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400041.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/navi-mutual-fund"
+  },
+  {
+    "id": "400025",
+    "slug": "nippon-india-mutual-fund",
+    "name": "Nippon India Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400025.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/nippon-india-mutual-fund"
+  },
+  {
+    "id": "400058",
+    "slug": "nj-mutual-fund",
+    "name": "NJ Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400058.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/nj-mutual-fund"
+  },
+  {
+    "id": "400063",
+    "slug": "old-bridge-mutual-fund",
+    "name": "Old Bridge Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400063.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/old-bridge-mutual-fund"
+  },
+  {
+    "id": "400044",
+    "slug": "pgim-india-mutual-fund",
+    "name": "PGIM India Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400044.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/pgim-india-mutual-fund"
+  },
+  {
+    "id": "400049",
+    "slug": "ppfas-mutual-fund",
+    "name": "PPFAS Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400049.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/ppfas-mutual-fund"
+  },
+  {
+    "id": "400010",
+    "slug": "quant-mutual-fund",
+    "name": "Quant Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400010.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/quant-mutual-fund"
+  },
+  {
+    "id": "400024",
+    "slug": "quantum-mutual-fund",
+    "name": "Quantum Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400024.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/quantum-mutual-fund"
+  },
+  {
+    "id": "400059",
+    "slug": "samco-mutual-fund",
+    "name": "Samco Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400059.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/samco-mutual-fund"
+  },
+  {
+    "id": "400027",
+    "slug": "sbi-mutual-fund",
+    "name": "SBI Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400027.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/sbi-mutual-fund"
+  },
+  {
+    "id": "400052",
+    "slug": "shriram-mutual-fund",
+    "name": "Shriram Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400052.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/shriram-mutual-fund"
+  },
+  {
+    "id": "400029",
+    "slug": "sundaram-mutual-fund",
+    "name": "Sundaram Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400029.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/sundaram-mutual-fund"
+  },
+  {
+    "id": "400030",
+    "slug": "tata-mutual-fund",
+    "name": "Tata Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400030.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/tata-mutual-fund"
+  },
+  {
+    "id": "400031",
+    "slug": "taurus-mutual-fund",
+    "name": "Taurus Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400031.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/taurus-mutual-fund"
+  },
+  {
+    "id": "400068",
+    "slug": "the-wealth-company-mutual-fund",
+    "name": "The Wealth Company Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400068.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/the-wealth-company-mutual-fund"
+  },
+  {
+    "id": "400057",
+    "slug": "trust-mutual-fund",
+    "name": "Trust Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400057.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/trust-mutual-fund"
+  },
+  {
+    "id": "400065",
+    "slug": "unifi-mutual-fund",
+    "name": "Unifi Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400065.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/unifi-mutual-fund"
+  },
+  {
+    "id": "400045",
+    "slug": "union-mutual-fund",
+    "name": "Union Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400045.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/union-mutual-fund"
+  },
+  {
+    "id": "400032",
+    "slug": "uti-mutual-fund",
+    "name": "UTI Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400032.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/uti-mutual-fund"
+  },
+  {
+    "id": "400055",
+    "slug": "whiteoak-capital-mutual-fund",
+    "name": "WhiteOak Capital Mutual Fund",
+    "logoUrl": "https://cms-resources.pocketful.in/logos/amc/400055.png",
+    "page": "https://www.pocketful.in/mutual-funds/amc/whiteoak-capital-mutual-fund"
   }
 ]

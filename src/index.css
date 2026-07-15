@@ -250,6 +250,7 @@ input[type="range"]::-moz-range-thumb {
   background: transparent;
   border: none;
   box-shadow: none;
+  cursor: default;
 }
 
 .amc-logo-img {
@@ -260,14 +261,24 @@ input[type="range"]::-moz-range-thumb {
   object-position: center;
   user-select: none;
   pointer-events: none;
-  filter: saturate(0.95) contrast(1.02);
-  opacity: 0.92;
-  transition: opacity 0.25s ease, filter 0.25s ease;
+  /* Idle: warm muted ink tone to match paper / ink-mute palette */
+  opacity: 0.7;
+  filter: grayscale(1) sepia(0.3) brightness(0.94) contrast(0.9);
+  transition:
+    filter 0.35s ease,
+    opacity 0.35s ease;
 }
 
-.amc-marquee:hover .amc-logo-img {
+.amc-logo-slot:hover .amc-logo-img {
+  /* Hover: full original brand colour */
   opacity: 1;
-  filter: saturate(1) contrast(1.04);
+  filter: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .amc-logo-img {
+    transition: none;
+  }
 }
 
 @keyframes amc-marquee-ltr {
