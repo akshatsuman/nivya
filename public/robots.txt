@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://akshatsuman.github.io/nivya/sitemap.xml
+Sitemap: /sitemap.xml

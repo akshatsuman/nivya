@@ -2,7 +2,7 @@
 
 Wealth, made simple. A calm, transparent mutual-fund distribution landing site and demo investor app for India.
 
-**Live site:** [https://akshatsuman.github.io/nivya/](https://akshatsuman.github.io/nivya/)
+**Repository:** [https://github.com/akshatsuman/nivya](https://github.com/akshatsuman/nivya)
 
 ## Features
 
@@ -18,7 +18,6 @@ Wealth, made simple. A calm, transparent mutual-fund distribution landing site a
 - Tailwind CSS 3
 - React Router 7
 - GSAP, Lenis, Recharts
-- GitHub Pages (`gh-pages`)
 
 ## Requirements
 
@@ -45,7 +44,7 @@ cp .env.example .env.local
 npm run dev
 ```
 
-App runs at [http://localhost:3000/nivya/](http://localhost:3000/nivya/) (Vite `base` is `/nivya/` for GitHub Pages).
+App runs at [http://localhost:3000/](http://localhost:3000/).
 
 ## Scripts
 
@@ -57,7 +56,6 @@ App runs at [http://localhost:3000/nivya/](http://localhost:3000/nivya/) (Vite `
 | `npm run lint` | ESLint |
 | `npm run format` | Prettier write |
 | `npm run typecheck` | TypeScript project build check |
-| `npm run deploy` | Build and publish to `gh-pages` |
 
 ## Build
 
@@ -81,17 +79,6 @@ index.html
 vite.config.ts
 DESIGN_SYSTEM.md  Brand / design tokens
 ```
-
-## Deployment (GitHub Pages)
-
-1. Repo Settings → Pages → Deploy from branch `gh-pages` / `/` (root).
-2. From a clean tree:
-
-```bash
-npm run deploy
-```
-
-Site URL: `https://akshatsuman.github.io/nivya/`
 
 ## License
 

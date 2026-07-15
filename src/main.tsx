@@ -13,7 +13,7 @@ import { Analytics } from "@vercel/analytics/react";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter basename="/nivya">
+    <BrowserRouter>
       <App />
       <Analytics />
     </BrowserRouter>
